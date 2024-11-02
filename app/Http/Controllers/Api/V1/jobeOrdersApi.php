@@ -4,17 +4,15 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use App\Models\UserRole;
+use App\Models\jobeOrder;
 use Validator;
-use App\Http\Controllers\ValidationsApi\V1\UserRoleControllerRequest;
+use App\Http\Controllers\ValidationsApi\V1\jobeOrdersRequest;
 // Auto Controller Maker By Baboon Script
 // Baboon Maker has been Created And Developed By  [it v 1.6.40]
 // Copyright Reserved  [it v 1.6.40]
-class UserRoleControllerApi extends Controller{
+class jobeOrdersApi extends Controller{
 	protected $selectColumns = [
 		"id",
-		"user_name",
-		"user_role",
 	];
 
             /**
@@ -23,7 +21,7 @@ class UserRoleControllerApi extends Controller{
              * @return array to assign with index & show methods
              */
             public function arrWith(){
-               return ['user_name',];
+               return [];
             }
 
 
@@ -34,8 +32,8 @@ class UserRoleControllerApi extends Controller{
              */
             public function index()
             {
-            	$UserRole = UserRole::select($this->selectColumns)->with($this->arrWith())->orderBy("id","desc")->paginate(15);
-               return successResponseJson(["data"=>$UserRole]);
+            	$jobeOrder = jobeOrder::select($this->selectColumns)->with($this->arrWith())->orderBy("id","desc")->paginate(15);
+               return successResponseJson(["data"=>$jobeOrder]);
             }
 
 
@@ -44,16 +42,16 @@ class UserRoleControllerApi extends Controller{
              * Store a newly created resource in storage. Api
              * @return \Illuminate\Http\Response
              */
-    public function store(UserRoleControllerRequest $request)
+    public function store(jobeOrdersRequest $request)
     {
     	$data = $request->except("_token");
     	
-        $UserRole = UserRole::create($data); 
+        $jobeOrder = jobeOrder::create($data); 
 
-		  $UserRole = UserRole::with($this->arrWith())->find($UserRole->id,$this->selectColumns);
+		  $jobeOrder = jobeOrder::with($this->arrWith())->find($jobeOrder->id,$this->selectColumns);
         return successResponseJson([
             "message"=>trans("admin.added"),
-            "data"=>$UserRole
+            "data"=>$jobeOrder
         ]);
     }
 
@@ -66,15 +64,15 @@ class UserRoleControllerApi extends Controller{
              */
             public function show($id)
             {
-                $UserRole = UserRole::with($this->arrWith())->find($id,$this->selectColumns);
-            	if(is_null($UserRole) || empty($UserRole)){
+                $jobeOrder = jobeOrder::with($this->arrWith())->find($id,$this->selectColumns);
+            	if(is_null($jobeOrder) || empty($jobeOrder)){
             	 return errorResponseJson([
             	  "message"=>trans("admin.undefinedRecord")
             	 ]);
             	}
 
                  return successResponseJson([
-              "data"=> $UserRole
+              "data"=> $jobeOrder
               ]);  ;
             }
 
@@ -86,7 +84,7 @@ class UserRoleControllerApi extends Controller{
              */
             public function updateFillableColumns() {
 				       $fillableCols = [];
-				       foreach (array_keys((new UserRoleControllerRequest)->attributes()) as $fillableUpdate) {
+				       foreach (array_keys((new jobeOrdersRequest)->attributes()) as $fillableUpdate) {
   				        if (!is_null(request($fillableUpdate))) {
 						  $fillableCols[$fillableUpdate] = request($fillableUpdate);
 						}
@@ -94,10 +92,10 @@ class UserRoleControllerApi extends Controller{
   				     return $fillableCols;
   	     		}
 
-            public function update(UserRoleControllerRequest $request,$id)
+            public function update(jobeOrdersRequest $request,$id)
             {
-            	$UserRole = UserRole::find($id);
-            	if(is_null($UserRole) || empty($UserRole)){
+            	$jobeOrder = jobeOrder::find($id);
+            	if(is_null($jobeOrder) || empty($jobeOrder)){
             	 return errorResponseJson([
             	  "message"=>trans("admin.undefinedRecord")
             	 ]);
@@ -105,12 +103,12 @@ class UserRoleControllerApi extends Controller{
 
             	$data = $this->updateFillableColumns();
                  
-              UserRole::where("id",$id)->update($data);
+              jobeOrder::where("id",$id)->update($data);
 
-              $UserRole = UserRole::with($this->arrWith())->find($id,$this->selectColumns);
+              $jobeOrder = jobeOrder::with($this->arrWith())->find($id,$this->selectColumns);
               return successResponseJson([
                "message"=>trans("admin.updated"),
-               "data"=> $UserRole
+               "data"=> $jobeOrder
                ]);
             }
 
@@ -121,17 +119,20 @@ class UserRoleControllerApi extends Controller{
              */
             public function destroy($id)
             {
-               $userrole = UserRole::find($id);
-            	if(is_null($userrole) || empty($userrole)){
+               $jobeorders = jobeOrder::find($id);
+            	if(is_null($jobeorders) || empty($jobeorders)){
             	 return errorResponseJson([
             	  "message"=>trans("admin.undefinedRecord")
             	 ]);
             	}
 
 
-               it()->delete("userrole",$id);
+              if(!empty($jobeorders->photo)){
+               it()->delete($jobeorders->photo);
+              }
+               it()->delete("jobeorder",$id);
 
-               $userrole->delete();
+               $jobeorders->delete();
                return successResponseJson([
                 "message"=>trans("admin.deleted")
                ]);
@@ -144,30 +145,36 @@ class UserRoleControllerApi extends Controller{
                 $data = request("selected_data");
                 if(is_array($data)){
                     foreach($data as $id){
-                    $userrole = UserRole::find($id);
-	            	if(is_null($userrole) || empty($userrole)){
+                    $jobeorders = jobeOrder::find($id);
+	            	if(is_null($jobeorders) || empty($jobeorders)){
 	            	 return errorResponseJson([
 	            	  "message"=>trans("admin.undefinedRecord")
 	            	 ]);
 	            	}
 
-                    	it()->delete("userrole",$id);
-                    	$userrole->delete();
+                    	if(!empty($jobeorders->photo)){
+                    	it()->delete($jobeorders->photo);
+                    	}
+                    	it()->delete("jobeorder",$id);
+                    	$jobeorders->delete();
                     }
                     return successResponseJson([
                      "message"=>trans("admin.deleted")
                     ]);
                 }else {
-                    $userrole = UserRole::find($data);
-	            	if(is_null($userrole) || empty($userrole)){
+                    $jobeorders = jobeOrder::find($data);
+	            	if(is_null($jobeorders) || empty($jobeorders)){
 	            	 return errorResponseJson([
 	            	  "message"=>trans("admin.undefinedRecord")
 	            	 ]);
 	            	}
  
-                    	it()->delete("userrole",$data);
+                    	if(!empty($jobeorders->photo)){
+                    	it()->delete($jobeorders->photo);
+                    	}
+                    	it()->delete("jobeorder",$data);
 
-                    $userrole->delete();
+                    $jobeorders->delete();
                     return successResponseJson([
                      "message"=>trans("admin.deleted")
                     ]);

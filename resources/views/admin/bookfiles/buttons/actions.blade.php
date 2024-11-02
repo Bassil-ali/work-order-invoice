@@ -5,8 +5,8 @@
 	<span class="sr-only"></span>
 	</button>
 	<div class="dropdown-menu" role="menu">
-		<a href="{{ aurl('/files/'.$id.'/edit')}}" class="dropdown-item" ><i class="fas fa-edit"></i> {{trans('admin.edit')}}</a>
-		<a href="{{ aurl('/files/'.$id)}}" class="dropdown-item" ><i class="fa fa-eye"></i> {{trans('admin.show')}}</a>
+		<a href="{{ aurl('/bookfiles/'.$id.'/edit')}}" class="dropdown-item" ><i class="fas fa-edit"></i> {{trans('admin.edit')}}</a>
+		<a href="{{ aurl('/bookfiles/'.$id)}}" class="dropdown-item" ><i class="fa fa-eye"></i> {{trans('admin.show')}}</a>
 		<div class="dropdown-divider"></div>
 		<a data-toggle="modal" data-target="#delete_record{{$id}}" href="#" class="dropdown-item">
 		<i class="fas fa-trash"></i> {{trans('admin.delete')}}</a>
@@ -25,7 +25,7 @@
 			<div class="modal-footer">
 				{!! Form::open([
 				'method' => 'DELETE',
-				'route' => ['files.destroy', $id]
+				'route' => ['bookfiles.destroy', $id]
 				]) !!}
 				{!! Form::submit(trans('admin.approval'), ['class' => 'btn btn-danger btn-flat']) !!}
 				<a class="btn btn-default btn-flat" data-dismiss="modal">{{trans('admin.cancel')}}</a>

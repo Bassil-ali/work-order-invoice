@@ -1,29 +1,29 @@
 <?php
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-use App\DataTables\FilesDataTable;
+use App\DataTables\BookFilesDataTable;
 use Carbon\Carbon;
-use App\Models\Files;
+use App\Models\BookFiles;
 
-use App\Http\Controllers\Validations\FilesControllerRequest;
+use App\Http\Controllers\Validations\BookFilesControllerRequest;
 // Auto Controller Maker By Baboon Script
 // Baboon Maker has been Created And Developed By  [it v 1.6.40]
 // Copyright Reserved  [it v 1.6.40]
-class FilesController extends Controller
+class BookFilesController extends Controller
 {
 
 	public function __construct() {
 
-		$this->middleware('AdminRole:filescontroller_show', [
+		$this->middleware('AdminRole:bookfilescontroller_show', [
 			'only' => ['index', 'show'],
 		]);
-		$this->middleware('AdminRole:filescontroller_add', [
+		$this->middleware('AdminRole:bookfilescontroller_add', [
 			'only' => ['create', 'store'],
 		]);
-		$this->middleware('AdminRole:filescontroller_edit', [
+		$this->middleware('AdminRole:bookfilescontroller_edit', [
 			'only' => ['edit', 'update'],
 		]);
-		$this->middleware('AdminRole:filescontroller_delete', [
+		$this->middleware('AdminRole:bookfilescontroller_delete', [
 			'only' => ['destroy', 'multi_delete'],
 		]);
 	}
@@ -35,9 +35,9 @@ class FilesController extends Controller
              * Display a listing of the resource.
              * @return \Illuminate\Http\Response
              */
-            public function index(FilesDataTable $files)
+            public function index(BookFilesDataTable $bookfiles)
             {
-               return $files->render('admin.files.index',['title'=>trans('admin.files')]);
+               return $bookfiles->render('admin.bookfiles.index',['title'=>trans('admin.bookfiles')]);
             }
 
 
@@ -49,7 +49,7 @@ class FilesController extends Controller
             public function create()
             {
             	
-               return view('admin.files.create',['title'=>trans('admin.create')]);
+               return view('admin.bookfiles.create',['title'=>trans('admin.create')]);
             }
 
             /**
@@ -58,19 +58,19 @@ class FilesController extends Controller
              * @param  \Illuminate\Http\Request  $request
              * @return \Illuminate\Http\Response Or Redirect
              */
-            public function store(FilesControllerRequest $request)
+            public function store(BookFilesControllerRequest $request)
             {
                 $data = $request->except("_token", "_method");
             	$data['file'] = "";
-		  		$files = Files::create($data); 
+		  		$bookfiles = BookFiles::create($data); 
                if(request()->hasFile('file')){
-              $files->file = it()->upload('file','files/'.$files->id);
-              $files->save();
+              $bookfiles->file = it()->upload('file','bookfiles/'.$bookfiles->id);
+              $bookfiles->save();
               }
 
 			return successResponseJson([
 				"message" => trans("admin.added"),
-				"data" => $files,
+				"data" => $bookfiles,
 			]);
 			 }
 
@@ -82,12 +82,12 @@ class FilesController extends Controller
              */
             public function show($id)
             {
-        		$files =  Files::find($id);
-        		return is_null($files) || empty($files)?
-        		backWithError(trans("admin.undefinedRecord"),aurl("files")) :
-        		view('admin.files.show',[
+        		$bookfiles =  BookFiles::find($id);
+        		return is_null($bookfiles) || empty($bookfiles)?
+        		backWithError(trans("admin.undefinedRecord"),aurl("bookfiles")) :
+        		view('admin.bookfiles.show',[
 				    'title'=>trans('admin.show'),
-					'files'=>$files
+					'bookfiles'=>$bookfiles
         		]);
             }
 
@@ -99,12 +99,12 @@ class FilesController extends Controller
              */
             public function edit($id)
             {
-        		$files =  Files::find($id);
-        		return is_null($files) || empty($files)?
-        		backWithError(trans("admin.undefinedRecord"),aurl("files")) :
-        		view('admin.files.edit',[
+        		$bookfiles =  BookFiles::find($id);
+        		return is_null($bookfiles) || empty($bookfiles)?
+        		backWithError(trans("admin.undefinedRecord"),aurl("bookfiles")) :
+        		view('admin.bookfiles.edit',[
 				  'title'=>trans('admin.edit'),
-				  'files'=>$files
+				  'bookfiles'=>$bookfiles
         		]);
             }
 
@@ -117,7 +117,7 @@ class FilesController extends Controller
              */
             public function updateFillableColumns() {
 				$fillableCols = [];
-				foreach (array_keys((new FilesControllerRequest)->attributes()) as $fillableUpdate) {
+				foreach (array_keys((new BookFilesControllerRequest)->attributes()) as $fillableUpdate) {
 					if (!is_null(request($fillableUpdate))) {
 						$fillableCols[$fillableUpdate] = request($fillableUpdate);
 					}
@@ -125,24 +125,24 @@ class FilesController extends Controller
 				return $fillableCols;
 			}
 
-            public function update(FilesControllerRequest $request,$id)
+            public function update(BookFilesControllerRequest $request,$id)
             {
               // Check Record Exists
-              $files =  Files::find($id);
-              if(is_null($files) || empty($files)){
-              	return backWithError(trans("admin.undefinedRecord"),aurl("files"));
+              $bookfiles =  BookFiles::find($id);
+              if(is_null($bookfiles) || empty($bookfiles)){
+              	return backWithError(trans("admin.undefinedRecord"),aurl("bookfiles"));
               }
               $data = $this->updateFillableColumns(); 
                if(request()->hasFile('file')){
-              it()->delete($files->file);
-              $data['file'] = it()->upload('file','files');
+              it()->delete($bookfiles->file);
+              $data['file'] = it()->upload('file','bookfiles');
                } 
-              Files::where('id',$id)->update($data);
+              BookFiles::where('id',$id)->update($data);
 
-              $files = Files::find($id);
+              $bookfiles = BookFiles::find($id);
               return successResponseJson([
                "message" => trans("admin.updated"),
-               "data" => $files,
+               "data" => $bookfiles,
               ]);
 			}
 
@@ -153,16 +153,16 @@ class FilesController extends Controller
              * @return \Illuminate\Http\Response
              */
 	public function destroy($id){
-		$files = Files::find($id);
-		if(is_null($files) || empty($files)){
-			return backWithSuccess(trans('admin.undefinedRecord'),aurl("files"));
+		$bookfiles = BookFiles::find($id);
+		if(is_null($bookfiles) || empty($bookfiles)){
+			return backWithSuccess(trans('admin.undefinedRecord'),aurl("bookfiles"));
 		}
-               		if(!empty($files->file)){
-			it()->delete($files->file);		}
+               		if(!empty($bookfiles->file)){
+			it()->delete($bookfiles->file);		}
 
-		it()->delete('files',$id);
-		$files->delete();
-		return redirectWithSuccess(aurl("files"),trans('admin.deleted'));
+		it()->delete('bookfiles',$id);
+		$bookfiles->delete();
+		return redirectWithSuccess(aurl("bookfiles"),trans('admin.deleted'));
 	}
 
 
@@ -170,28 +170,28 @@ class FilesController extends Controller
 		$data = request('selected_data');
 		if(is_array($data)){
 			foreach($data as $id){
-				$files = Files::find($id);
-				if(is_null($files) || empty($files)){
-					return backWithError(trans('admin.undefinedRecord'),aurl("files"));
+				$bookfiles = BookFiles::find($id);
+				if(is_null($bookfiles) || empty($bookfiles)){
+					return backWithError(trans('admin.undefinedRecord'),aurl("bookfiles"));
 				}
-                    					if(!empty($files->file)){
-				  it()->delete($files->file);
+                    					if(!empty($bookfiles->file)){
+				  it()->delete($bookfiles->file);
 				}
-				it()->delete('files',$id);
-				$files->delete();
+				it()->delete('bookfiles',$id);
+				$bookfiles->delete();
 			}
-			return redirectWithSuccess(aurl("files"),trans('admin.deleted'));
+			return redirectWithSuccess(aurl("bookfiles"),trans('admin.deleted'));
 		}else {
-			$files = Files::find($data);
-			if(is_null($files) || empty($files)){
-				return backWithError(trans('admin.undefinedRecord'),aurl("files"));
+			$bookfiles = BookFiles::find($data);
+			if(is_null($bookfiles) || empty($bookfiles)){
+				return backWithError(trans('admin.undefinedRecord'),aurl("bookfiles"));
 			}
                     
-			if(!empty($files->file)){
-			 it()->delete($files->file);
-			}			it()->delete('files',$data);
-			$files->delete();
-			return redirectWithSuccess(aurl("files"),trans('admin.deleted'));
+			if(!empty($bookfiles->file)){
+			 it()->delete($bookfiles->file);
+			}			it()->delete('bookfiles',$data);
+			$bookfiles->delete();
+			return redirectWithSuccess(aurl("bookfiles"),trans('admin.deleted'));
 		}
 	}
             

@@ -71,33 +71,7 @@ with font-awesome or any other icon font library -->
 @endif
 
 
-<!--files_start_route-->
-@if(admin()->user()->role("files_show"))
-<li class="nav-item {{active_link('files','menu-open')}} ">
-  <a href="#" class="nav-link {{active_link('files','active')}}">
-    <i class="nav-icon fa fa-file-alt"></i>
-    <p>
-      {{trans('admin.files')}} 
-      <i class="right fas fa-angle-left"></i>
-    </p>
-  </a>
-  <ul class="nav nav-treeview">
-    <li class="nav-item">
-      <a href="{{aurl('files')}}" class="nav-link  {{active_link('files','active')}}">
-        <i class="fa fa-file-alt nav-icon"></i>
-        <p>{{trans('admin.files')}} </p>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a href="{{ aurl('files/create') }}" class="nav-link">
-        <i class="fas fa-plus nav-icon"></i>
-        <p>{{trans('admin.create')}} </p>
-      </a>
-    </li>
-  </ul>
-</li>
-@endif
-<!--files_end_route-->
+
 
 <!--userrole_start_route-->
 @if(admin()->user()->role("userrole_show"))
@@ -126,3 +100,63 @@ with font-awesome or any other icon font library -->
 </li>
 @endif
 <!--userrole_end_route-->
+
+
+
+<!--joborders_start_route-->
+@if(admin()->user()->role("joborders_show"))
+<li class="nav-item {{active_link('joborders','menu-open')}} ">
+  <a href="#" class="nav-link {{active_link('joborders','active')}}">
+    <i class="nav-icon fa fa-file-invoice"></i>
+    <p>
+      {{trans('admin.joborders')}} 
+      <i class="right fas fa-angle-left"></i>
+    </p>
+  </a>
+  <ul class="nav nav-treeview">
+    <li class="nav-item">
+      <a href="{{aurl('joborders')}}" class="nav-link  {{active_link('joborders','active')}}">
+        <i class="fa fa-file-invoice nav-icon"></i>
+        <p>{{trans('admin.joborders')}} </p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="{{ aurl('joborders/create') }}" class="nav-link">
+        <i class="fas fa-plus nav-icon"></i>
+        <p>{{trans('admin.create')}} </p>
+      </a>
+    </li>
+  </ul>
+</li>
+@endif
+<!--joborders_end_route-->
+
+<!--bookfiles_start_route-->
+@if(admin()->user()->role("bookfiles_show"))
+<li class="nav-item {{active_link('bookfiles','menu-open')}} ">
+  <a href="#" class="nav-link {{active_link('bookfiles','active')}}">
+    <i class="nav-icon fa fa-file-alt"></i>
+    <p>
+      {{trans('admin.bookfiles')}} 
+      <i class="right fas fa-angle-left"></i>
+    </p>
+  </a>
+  <ul class="nav nav-treeview">
+    <li class="nav-item">
+      <a href="{{aurl('bookfiles')}}" class="nav-link  {{active_link('bookfiles','active')}}">
+        <i class="fa fa-file-alt nav-icon"></i>
+        <p>{{trans('admin.bookfiles')}} </p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="{{ aurl('bookfiles/create') }}" class="nav-link">
+        <i class="fas fa-plus nav-icon"></i>
+        <p>{{trans('admin.create')}} </p>
+      </a>
+    </li>
+  </ul>
+</li>
+@endif
+<!--bookfiles_end_route-->
+
+

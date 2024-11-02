@@ -5,7 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 // Auto Schema  By Baboon Script
 // Baboon Maker has been Created And Developed By [it v 1.6.40]
 // Copyright Reserved  [it v 1.6.40]
-class CreateFilesTable extends Migration
+class CreateBookFilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,11 +14,12 @@ class CreateFilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('files', function (Blueprint $table) {
+        Schema::create('book_files', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('file');
             $table->string('file_name');
-			$table->timestamps();
+			$table->softDeletes();
+			$table->timestamps();
         });
     }
 
@@ -29,6 +30,6 @@ class CreateFilesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('files');
+        Schema::dropIfExists('book_files');
     }
 }

@@ -16,11 +16,11 @@ class CreateUserRolesTable extends Migration
     {
         Schema::create('user_roles', function (Blueprint $table) {
             $table->bigIncrements('id');
-$table->foreignId("admin_id")->constrained("admins")->onUpdate("cascade")->onDelete("cascade");
-            $table->foreignId("user_name")->constrained("admin")->references("id");
+            $table->foreignId("user_name")->constrained("admins")->references("id");
             $table->enum('user_role',['entry','manager','specifcation','desighn','printer','cover','printer_cover','after-print']);
 			$table->softDeletes();
-			$table->timestamps();
+
+			$table->timestamps();
         });
     }
 
@@ -34,3 +34,4 @@ $table->foreignId("admin_id")->constrained("admins")->onUpdate("cascade")->onDel
         Schema::dropIfExists('user_roles');
     }
 }
+

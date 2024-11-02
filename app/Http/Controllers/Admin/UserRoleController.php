@@ -61,8 +61,7 @@ class UserRoleController extends Controller
             public function store(UserRoleControllerRequest $request)
             {
                 $data = $request->except("_token", "_method");
-            	$data['admin_id'] = admin()->id(); 
-		  		$userrole = UserRole::create($data); 
+            			  		$userrole = UserRole::create($data); 
 
 			return successResponseJson([
 				"message" => trans("admin.added"),
@@ -129,7 +128,6 @@ class UserRoleController extends Controller
               	return backWithError(trans("admin.undefinedRecord"),aurl("userrole"));
               }
               $data = $this->updateFillableColumns(); 
-              $data['admin_id'] = admin()->id(); 
               UserRole::where('id',$id)->update($data);
 
               $userrole = UserRole::find($id);

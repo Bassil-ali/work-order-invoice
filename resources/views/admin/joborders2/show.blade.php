@@ -10,23 +10,23 @@
 				<span class="sr-only"></span>
 			</a>
 			<div class="dropdown-menu" role="menu">
-				<a href="{{aurl('userrole')}}" class="dropdown-item"  style="color:#343a40">
+				<a href="{{aurl('joborders2')}}" class="dropdown-item"  style="color:#343a40">
 				<i class="fas fa-list"></i> {{trans('admin.show_all')}}</a>
-				<a class="dropdown-item"  style="color:#343a40" href="{{aurl('userrole/'.$userrole->id.'/edit')}}">
+				<a class="dropdown-item"  style="color:#343a40" href="{{aurl('joborders2/'.$joborders2->id.'/edit')}}">
 					<i class="fas fa-edit"></i> {{trans('admin.edit')}}
 				</a>
-				<a class="dropdown-item"  style="color:#343a40" href="{{aurl('userrole/create')}}">
+				<a class="dropdown-item"  style="color:#343a40" href="{{aurl('joborders2/create')}}">
 					<i class="fas fa-plus"></i> {{trans('admin.create')}}
 				</a>
 				<div class="dropdown-divider"></div>
-				<a data-toggle="modal" data-target="#deleteRecord{{$userrole->id}}" class="dropdown-item"  style="color:#343a40" href="#">
+				<a data-toggle="modal" data-target="#deleteRecord{{$joborders2->id}}" class="dropdown-item"  style="color:#343a40" href="#">
 					<i class="fas fa-trash"></i> {{trans('admin.delete')}}
 				</a>
 			</div>
 		</div>
 		</h3>
 		@push('js')
-		<div class="modal fade" id="deleteRecord{{$userrole->id}}">
+		<div class="modal fade" id="deleteRecord{{$joborders2->id}}">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -34,12 +34,12 @@
 						<button class="close" data-dismiss="modal">x</button>
 					</div>
 					<div class="modal-body">
-						<i class="fa fa-exclamation-triangle"></i>  {{trans('admin.ask_del')}} {{trans('admin.id')}} ({{$userrole->id}})
+						<i class="fa fa-exclamation-triangle"></i>  {{trans('admin.ask_del')}} {{trans('admin.id')}} ({{$joborders2->id}})
 					</div>
 					<div class="modal-footer">
 						{!! Form::open([
                'method' => 'DELETE',
-               'route' => ['userrole.destroy', $userrole->id]
+               'route' => ['joborders2.destroy', $joborders2->id]
                ]) !!}
                 {!! Form::submit(trans('admin.approval'), ['class' => 'btn btn-danger btn-flat']) !!}
 						 <a class="btn btn-default" data-dismiss="modal">{{trans('admin.cancel')}}</a>
@@ -58,19 +58,17 @@
 	<div class="card-body">
 		<div class="row">
 			<div class="col-md-12 col-lg-12 col-xs-12">
-				<b>{{trans('admin.id')}} :</b> {{$userrole->id}}
+				<b>{{trans('admin.id')}} :</b> {{$joborders2->id}}
 			</div>
 			<div class="clearfix"></div>
 			<hr />
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-				<b>{{trans('admin.user_name')}} :</b>
-				@if(!empty($userrole->user_name()->first()))
-			{{ $userrole->user_name()->first()->name }}
-			@endif
+				<b>{{trans('admin.dd')}} :</b>
+				{!! $joborders2->dd !!}
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-				<b>{{trans('admin.user_role')}} :</b>
-				{{ trans("admin.".$userrole->user_role) }}
+				<b>{{trans('admin.number_type')}} :</b>
+				{{ trans("admin.".$joborders2->number_type) }}
 			</div>
 			<!-- /.row -->
 		</div>

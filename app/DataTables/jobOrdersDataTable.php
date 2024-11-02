@@ -1,12 +1,12 @@
 <?php
 namespace App\DataTables;
-use App\Models\Files;
+use App\Models\jobOrder;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Services\DataTable;
 // Auto DataTable By Baboon Script
 // Baboon Maker has been Created And Developed By [it v 1.6.40]
 // Copyright Reserved [it v 1.6.40]
-class FilesDataTable extends DataTable
+class jobOrdersDataTable extends DataTable
 {
     	
 
@@ -18,13 +18,23 @@ class FilesDataTable extends DataTable
     public function dataTable(DataTables $dataTables, $query)
     {
         return datatables($query)
-            ->addColumn('actions', 'admin.files.buttons.actions')
-            ->addColumn('file', '<a href="{{ it()->url($file) }}" target="_blank"><i class="fa fa-download fa-2x"></i></a>')
+            ->addColumn('actions', 'admin.joborders.buttons.actions')
+            ->addColumn('photo', '<a href="{{ it()->url($photo) }}" target="_blank"><i class="fa fa-download fa-2x"></i></a>')
+            ->addColumn('Payment_method', '{{ trans("admin.".$Payment_method) }}')
+            ->addColumn('type_of_publication', '{{ trans("admin.".$type_of_publication) }}')
+            ->addColumn('Measurement', '{{ trans("admin.".$Measurement) }}')
+            ->addColumn('Number_of_interior_colors', '{{ trans("admin.".$Number_of_interior_colors) }}')
+            ->addColumn('Number_of_colors_Cover_or_commercial', '{{ trans("admin.".$Number_of_colors_Cover_or_commercial) }}')
+            ->addColumn('Pallet_measuring_notes', '{{ trans("admin.".$Pallet_measuring_notes) }}')
+            ->addColumn('number_type', '{{ trans("admin.".$number_type) }}')
+            ->addColumn('fold_the_book', '{{ trans("admin.".$fold_the_book) }}')
+            ->addColumn('cover_pallet_measurement', '{{ trans("admin.".$cover_pallet_measurement) }}')
+            ->addColumn('cover_pallet_measurement_type', '{{ trans("admin.".$cover_pallet_measurement_type) }}')
    		->addColumn('created_at', '{{ date("Y-m-d H:i:s",strtotime($created_at)) }}')   		->addColumn('updated_at', '{{ date("Y-m-d H:i:s",strtotime($updated_at)) }}')            ->addColumn('checkbox', '<div  class="icheck-danger">
                   <input type="checkbox" class="selected_data" name="selected_data[]" id="selectdata{{ $id }}" value="{{ $id }}" >
                   <label for="selectdata{{ $id }}"></label>
                 </div>')
-            ->rawColumns(['checkbox','actions',"file",]);
+            ->rawColumns(['checkbox','actions',"photo",]);
     }
   
 
@@ -35,7 +45,7 @@ class FilesDataTable extends DataTable
      */
 	public function query()
     {
-        return Files::query()->select("files.*");
+        return jobOrder::query()->select("job_orders.*");
 
     }
     	
@@ -94,8 +104,6 @@ class FilesDataTable extends DataTable
 
 
             
-            ". filterElement('1,3', 'input') . "
-
             
 
 	            }",
@@ -164,16 +172,6 @@ class FilesDataTable extends DataTable
                 'width'          => '10px',
                 'aaSorting'      => 'none'
             ],
-				[
-                 'name'=>'file',
-                 'data'=>'file',
-                 'title'=>trans('admin.file'),
-		    ],
-				[
-                 'name'=>'file_name',
-                 'data'=>'file_name',
-                 'title'=>trans('admin.file_name'),
-		    ],
             [
 	                'name' => 'created_at',
 	                'data' => 'created_at',
@@ -211,7 +209,7 @@ class FilesDataTable extends DataTable
 	     */
 	    protected function filename()
 	    {
-	        return 'files_' . time();
+	        return 'joborders_' . time();
 	    }
     	
 }

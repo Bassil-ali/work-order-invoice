@@ -10,23 +10,23 @@
 				<span class="sr-only"></span>
 			</a>
 			<div class="dropdown-menu" role="menu">
-				<a href="{{aurl('files')}}" class="dropdown-item"  style="color:#343a40">
+				<a href="{{aurl('bookfiles')}}" class="dropdown-item"  style="color:#343a40">
 				<i class="fas fa-list"></i> {{trans('admin.show_all')}}</a>
-				<a class="dropdown-item"  style="color:#343a40" href="{{aurl('files/'.$files->id.'/edit')}}">
+				<a class="dropdown-item"  style="color:#343a40" href="{{aurl('bookfiles/'.$bookfiles->id.'/edit')}}">
 					<i class="fas fa-edit"></i> {{trans('admin.edit')}}
 				</a>
-				<a class="dropdown-item"  style="color:#343a40" href="{{aurl('files/create')}}">
+				<a class="dropdown-item"  style="color:#343a40" href="{{aurl('bookfiles/create')}}">
 					<i class="fas fa-plus"></i> {{trans('admin.create')}}
 				</a>
 				<div class="dropdown-divider"></div>
-				<a data-toggle="modal" data-target="#deleteRecord{{$files->id}}" class="dropdown-item"  style="color:#343a40" href="#">
+				<a data-toggle="modal" data-target="#deleteRecord{{$bookfiles->id}}" class="dropdown-item"  style="color:#343a40" href="#">
 					<i class="fas fa-trash"></i> {{trans('admin.delete')}}
 				</a>
 			</div>
 		</div>
 		</h3>
 		@push('js')
-		<div class="modal fade" id="deleteRecord{{$files->id}}">
+		<div class="modal fade" id="deleteRecord{{$bookfiles->id}}">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -34,12 +34,12 @@
 						<button class="close" data-dismiss="modal">x</button>
 					</div>
 					<div class="modal-body">
-						<i class="fa fa-exclamation-triangle"></i>  {{trans('admin.ask_del')}} {{trans('admin.id')}} ({{$files->id}})
+						<i class="fa fa-exclamation-triangle"></i>  {{trans('admin.ask_del')}} {{trans('admin.id')}} ({{$bookfiles->id}})
 					</div>
 					<div class="modal-footer">
 						{!! Form::open([
                'method' => 'DELETE',
-               'route' => ['files.destroy', $files->id]
+               'route' => ['bookfiles.destroy', $bookfiles->id]
                ]) !!}
                 {!! Form::submit(trans('admin.approval'), ['class' => 'btn btn-danger btn-flat']) !!}
 						 <a class="btn btn-default" data-dismiss="modal">{{trans('admin.cancel')}}</a>
@@ -58,13 +58,13 @@
 	<div class="card-body">
 		<div class="row">
 			<div class="col-md-12 col-lg-12 col-xs-12">
-				<b>{{trans('admin.id')}} :</b> {{$files->id}}
+				<b>{{trans('admin.id')}} :</b> {{$bookfiles->id}}
 			</div>
 			<div class="clearfix"></div>
 			<hr />
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<b>{{trans('admin.file_name')}} :</b>
-				{!! $files->file_name !!}
+				{!! $bookfiles->file_name !!}
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<div class="row">
@@ -75,7 +75,7 @@
 						
 					</div>
 					<div class="col-md-2 col-lg-2 col-xs-12">
-						<a href="{{ it()->url($files->file) }}" target="_blank"><i class="fa fa-download fa-2x"></i></a>
+						<a href="{{ it()->url($bookfiles->file) }}" target="_blank"><i class="fa fa-download fa-2x"></i></a>
 					</div>
 				</div>
 			</div>

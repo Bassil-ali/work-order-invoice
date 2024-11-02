@@ -4,17 +4,17 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use App\Models\UserRole;
+use App\Models\BookFiles;
 use Validator;
-use App\Http\Controllers\ValidationsApi\V1\UserRoleControllerRequest;
+use App\Http\Controllers\ValidationsApi\V1\BookFilesControllerRequest;
 // Auto Controller Maker By Baboon Script
 // Baboon Maker has been Created And Developed By  [it v 1.6.40]
 // Copyright Reserved  [it v 1.6.40]
-class UserRoleControllerApi extends Controller{
+class BookFilesControllerApi extends Controller{
 	protected $selectColumns = [
 		"id",
-		"user_name",
-		"user_role",
+		"file",
+		"file_name",
 	];
 
             /**
@@ -23,7 +23,7 @@ class UserRoleControllerApi extends Controller{
              * @return array to assign with index & show methods
              */
             public function arrWith(){
-               return ['user_name',];
+               return [];
             }
 
 
@@ -34,8 +34,8 @@ class UserRoleControllerApi extends Controller{
              */
             public function index()
             {
-            	$UserRole = UserRole::select($this->selectColumns)->with($this->arrWith())->orderBy("id","desc")->paginate(15);
-               return successResponseJson(["data"=>$UserRole]);
+            	$BookFiles = BookFiles::select($this->selectColumns)->with($this->arrWith())->orderBy("id","desc")->paginate(15);
+               return successResponseJson(["data"=>$BookFiles]);
             }
 
 
@@ -44,16 +44,21 @@ class UserRoleControllerApi extends Controller{
              * Store a newly created resource in storage. Api
              * @return \Illuminate\Http\Response
              */
-    public function store(UserRoleControllerRequest $request)
+    public function store(BookFilesControllerRequest $request)
     {
     	$data = $request->except("_token");
     	
-        $UserRole = UserRole::create($data); 
+                $data["file"] = "";
+        $BookFiles = BookFiles::create($data); 
+               if(request()->hasFile("file")){
+              $BookFiles->file = it()->upload("file","bookfiles/".$BookFiles->id);
+              $BookFiles->save();
+              }
 
-		  $UserRole = UserRole::with($this->arrWith())->find($UserRole->id,$this->selectColumns);
+		  $BookFiles = BookFiles::with($this->arrWith())->find($BookFiles->id,$this->selectColumns);
         return successResponseJson([
             "message"=>trans("admin.added"),
-            "data"=>$UserRole
+            "data"=>$BookFiles
         ]);
     }
 
@@ -66,15 +71,15 @@ class UserRoleControllerApi extends Controller{
              */
             public function show($id)
             {
-                $UserRole = UserRole::with($this->arrWith())->find($id,$this->selectColumns);
-            	if(is_null($UserRole) || empty($UserRole)){
+                $BookFiles = BookFiles::with($this->arrWith())->find($id,$this->selectColumns);
+            	if(is_null($BookFiles) || empty($BookFiles)){
             	 return errorResponseJson([
             	  "message"=>trans("admin.undefinedRecord")
             	 ]);
             	}
 
                  return successResponseJson([
-              "data"=> $UserRole
+              "data"=> $BookFiles
               ]);  ;
             }
 
@@ -86,7 +91,7 @@ class UserRoleControllerApi extends Controller{
              */
             public function updateFillableColumns() {
 				       $fillableCols = [];
-				       foreach (array_keys((new UserRoleControllerRequest)->attributes()) as $fillableUpdate) {
+				       foreach (array_keys((new BookFilesControllerRequest)->attributes()) as $fillableUpdate) {
   				        if (!is_null(request($fillableUpdate))) {
 						  $fillableCols[$fillableUpdate] = request($fillableUpdate);
 						}
@@ -94,10 +99,10 @@ class UserRoleControllerApi extends Controller{
   				     return $fillableCols;
   	     		}
 
-            public function update(UserRoleControllerRequest $request,$id)
+            public function update(BookFilesControllerRequest $request,$id)
             {
-            	$UserRole = UserRole::find($id);
-            	if(is_null($UserRole) || empty($UserRole)){
+            	$BookFiles = BookFiles::find($id);
+            	if(is_null($BookFiles) || empty($BookFiles)){
             	 return errorResponseJson([
             	  "message"=>trans("admin.undefinedRecord")
             	 ]);
@@ -105,12 +110,16 @@ class UserRoleControllerApi extends Controller{
 
             	$data = $this->updateFillableColumns();
                  
-              UserRole::where("id",$id)->update($data);
+               if(request()->hasFile("file")){
+              it()->delete($BookFiles->file);
+              $data["file"] = it()->upload("file","bookfiles/".$BookFiles->id);
+               }
+              BookFiles::where("id",$id)->update($data);
 
-              $UserRole = UserRole::with($this->arrWith())->find($id,$this->selectColumns);
+              $BookFiles = BookFiles::with($this->arrWith())->find($id,$this->selectColumns);
               return successResponseJson([
                "message"=>trans("admin.updated"),
-               "data"=> $UserRole
+               "data"=> $BookFiles
                ]);
             }
 
@@ -121,17 +130,20 @@ class UserRoleControllerApi extends Controller{
              */
             public function destroy($id)
             {
-               $userrole = UserRole::find($id);
-            	if(is_null($userrole) || empty($userrole)){
+               $bookfiles = BookFiles::find($id);
+            	if(is_null($bookfiles) || empty($bookfiles)){
             	 return errorResponseJson([
             	  "message"=>trans("admin.undefinedRecord")
             	 ]);
             	}
 
 
-               it()->delete("userrole",$id);
+              if(!empty($bookfiles->file)){
+               it()->delete($bookfiles->file);
+              }
+               it()->delete("bookfiles",$id);
 
-               $userrole->delete();
+               $bookfiles->delete();
                return successResponseJson([
                 "message"=>trans("admin.deleted")
                ]);
@@ -144,30 +156,36 @@ class UserRoleControllerApi extends Controller{
                 $data = request("selected_data");
                 if(is_array($data)){
                     foreach($data as $id){
-                    $userrole = UserRole::find($id);
-	            	if(is_null($userrole) || empty($userrole)){
+                    $bookfiles = BookFiles::find($id);
+	            	if(is_null($bookfiles) || empty($bookfiles)){
 	            	 return errorResponseJson([
 	            	  "message"=>trans("admin.undefinedRecord")
 	            	 ]);
 	            	}
 
-                    	it()->delete("userrole",$id);
-                    	$userrole->delete();
+                    	if(!empty($bookfiles->file)){
+                    	it()->delete($bookfiles->file);
+                    	}
+                    	it()->delete("bookfiles",$id);
+                    	$bookfiles->delete();
                     }
                     return successResponseJson([
                      "message"=>trans("admin.deleted")
                     ]);
                 }else {
-                    $userrole = UserRole::find($data);
-	            	if(is_null($userrole) || empty($userrole)){
+                    $bookfiles = BookFiles::find($data);
+	            	if(is_null($bookfiles) || empty($bookfiles)){
 	            	 return errorResponseJson([
 	            	  "message"=>trans("admin.undefinedRecord")
 	            	 ]);
 	            	}
  
-                    	it()->delete("userrole",$data);
+                    	if(!empty($bookfiles->file)){
+                    	it()->delete($bookfiles->file);
+                    	}
+                    	it()->delete("bookfiles",$data);
 
-                    $userrole->delete();
+                    $bookfiles->delete();
                     return successResponseJson([
                      "message"=>trans("admin.deleted")
                     ]);
