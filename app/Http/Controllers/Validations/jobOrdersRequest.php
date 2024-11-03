@@ -36,7 +36,7 @@ class jobOrdersRequest extends FormRequest {
              'type_of_publication'=>'required|in:Book,Other',
              'number_of_pages'=>'',
              'other'=>'',
-             'Measurement'=>'required|in:Bank Card,Electronic Transfer,Receivables (Checks),Receivables (Account),Cash (Instant Check)',
+             'Measurement'=>'required|in:Educational Offer Size 28x21,Commercial Size 28x20.5,Special Size',
              'Special_Size'=>'',
              'Quantity_in_numbers'=>'required',
              'Quantity_Writing'=>'required',
@@ -55,6 +55,15 @@ class jobOrdersRequest extends FormRequest {
              'cover_pallet_measurement_type'=>'required|in:face,Two faces',
              'cover_notes'=>'',
              'cover_created_by'=>'',
+             'color_lieutenant'=>'required|in:8 Color 70x100,4 Color 70x100,50x70',
+             'lieutenant_text'=>'',
+             'cover_color'=>'required|in:4 Color 70x100,50x70',
+             'Book_cover_text'=>'',
+             'Printing_digital_ctreated_by'=>'required',
+             'The_heel'=>'required|in:Horse,tailoring,brush',
+             'Slovenia'=>'required|in:shiny,matte',
+             'Slovenia_text'=>'',
+             'after_printing'=>'',
 		];
 	}
 
@@ -71,7 +80,7 @@ class jobOrdersRequest extends FormRequest {
              'type_of_publication'=>'required|in:Book,Other',
              'number_of_pages'=>'',
              'other'=>'',
-             'Measurement'=>'required|in:Bank Card,Electronic Transfer,Receivables (Checks),Receivables (Account),Cash (Instant Check)',
+             'Measurement'=>'required|in:Educational Offer Size 28x21,Commercial Size 28x20.5,Special Size',
              'Special_Size'=>'',
              'Quantity_in_numbers'=>'required',
              'Quantity_Writing'=>'required',
@@ -90,6 +99,15 @@ class jobOrdersRequest extends FormRequest {
              'cover_pallet_measurement_type'=>'required|in:face,Two faces',
              'cover_notes'=>'',
              'cover_created_by'=>'',
+             'color_lieutenant'=>'required|in:8 Color 70x100,4 Color 70x100,50x70',
+             'lieutenant_text'=>'',
+             'cover_color'=>'required|in:4 Color 70x100,50x70',
+             'Book_cover_text'=>'',
+             'Printing_digital_ctreated_by'=>'required',
+             'The_heel'=>'required|in:Horse,tailoring,brush',
+             'Slovenia'=>'required|in:shiny,matte',
+             'Slovenia_text'=>'',
+             'after_printing'=>'',
 		];
 	}
 
@@ -137,6 +155,15 @@ class jobOrdersRequest extends FormRequest {
              'cover_pallet_measurement_type'=>trans('admin.cover_pallet_measurement_type'),
              'cover_notes'=>trans('admin.cover_notes'),
              'cover_created_by'=>trans('admin.cover_created_by'),
+             'color_lieutenant'=>trans('admin.color_lieutenant'),
+             'lieutenant_text'=>trans('admin.lieutenant_text'),
+             'cover_color'=>trans('admin.cover_color'),
+             'Book_cover_text'=>trans('admin.Book_cover_text'),
+             'Printing_digital_ctreated_by'=>trans('admin.Printing_digital_ctreated_by'),
+             'The_heel'=>trans('admin.The_heel'),
+             'Slovenia'=>trans('admin.Slovenia'),
+             'Slovenia_text'=>trans('admin.Slovenia_text'),
+             'after_printing'=>trans('admin.after_printing'),
 		];
 	}
 

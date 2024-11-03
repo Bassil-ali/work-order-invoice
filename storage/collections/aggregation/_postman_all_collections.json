@@ -1,6 +1,6 @@
 {
     "info": {
-        "_postman_id": "52a13045-27c9-41e3-840e-75ff2b09de51",
+        "_postman_id": "5017ffb3-576c-4ad7-8f5e-40b2bd68d910",
         "name": null,
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
@@ -1446,7 +1446,7 @@
                                     "key": "user_role",
                                     "value": "entry",
                                     "type": "text",
-                                    "description": "Dropdown data (entry,manager,specifcation,desighn,printer,cover,printer_cover,after-print)"
+                                    "description": "Dropdown data (entry,manager,specifcation,desighn,printer,cover,printer_cover,after_print,printer_digital)"
                                 }
                             ]
                         },
@@ -1506,7 +1506,7 @@
                                     "key": "user_role",
                                     "value": "entry",
                                     "type": "text",
-                                    "description": "Dropdown data (entry,manager,specifcation,desighn,printer,cover,printer_cover,after-print)"
+                                    "description": "Dropdown data (entry,manager,specifcation,desighn,printer,cover,printer_cover,after_print,printer_digital)"
                                 }
                             ]
                         },

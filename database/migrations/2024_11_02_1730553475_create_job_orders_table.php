@@ -28,7 +28,7 @@ $table->foreignId("admin_id")->constrained("admins")->onUpdate("cascade")->onDel
             $table->enum('type_of_publication',['Book','Other']);
             $table->string('number_of_pages')->nullable();
             $table->string('other')->nullable();
-            $table->enum('Measurement',['Bank Card','Electronic Transfer','Receivables (Checks)','Receivables (Account)','Cash (Instant Check)']);
+            $table->enum('Measurement',['Educational Offer Size 28x21','Commercial Size 28x20.5','Special Size']);
             $table->string('Special_Size')->nullable();
             $table->string('Quantity_in_numbers');
             $table->string('Quantity_Writing');
@@ -47,6 +47,15 @@ $table->foreignId("admin_id")->constrained("admins")->onUpdate("cascade")->onDel
             $table->enum('cover_pallet_measurement_type',['face','Two faces']);
             $table->string('cover_notes')->nullable();
             $table->string('cover_created_by')->nullable();
+            $table->enum('color_lieutenant',['8 Color 70x100','4 Color 70x100','50x70']);
+            $table->longtext('lieutenant_text')->nullable();
+            $table->enum('cover_color',['4 Color 70x100','50x70']);
+            $table->longtext('Book_cover_text')->nullable();
+            $table->longtext('Printing_digital_ctreated_by');
+            $table->enum('The_heel',['Horse','tailoring','brush']);
+            $table->enum('Slovenia',['shiny','matte']);
+            $table->string('Slovenia_text')->nullable();
+            $table->longtext('after_printing')->nullable();
 			$table->softDeletes();
 			$table->timestamps();
         });

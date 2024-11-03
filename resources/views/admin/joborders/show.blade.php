@@ -145,6 +145,26 @@
 				{!! $joborders->cover_created_by !!}
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<b>{{trans('admin.lieutenant_text')}} :</b>
+				{!! $joborders->lieutenant_text !!}
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<b>{{trans('admin.Book_cover_text')}} :</b>
+				{!! $joborders->Book_cover_text !!}
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<b>{{trans('admin.Printing_digital_ctreated_by')}} :</b>
+				{!! $joborders->Printing_digital_ctreated_by !!}
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<b>{{trans('admin.Slovenia_text')}} :</b>
+				{!! $joborders->Slovenia_text !!}
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<b>{{trans('admin.after_printing')}} :</b>
+				{!! $joborders->after_printing !!}
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<div class="row">
 					<div class="col-md-8 col-lg-4 col-xs-12">
 					  <b>{{trans('admin.photo')}} :</b>
@@ -196,6 +216,22 @@
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<b>{{trans('admin.cover_pallet_measurement_type')}} :</b>
 				{{ trans("admin.".$joborders->cover_pallet_measurement_type) }}
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<b>{{trans('admin.color_lieutenant')}} :</b>
+				{{ trans("admin.".$joborders->color_lieutenant) }}
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<b>{{trans('admin.cover_color')}} :</b>
+				{{ trans("admin.".$joborders->cover_color) }}
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<b>{{trans('admin.The_heel')}} :</b>
+				{{ trans("admin.".$joborders->The_heel) }}
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<b>{{trans('admin.Slovenia')}} :</b>
+				{{ trans("admin.".$joborders->Slovenia) }}
 			</div>
 			<!-- /.row -->
 		</div>

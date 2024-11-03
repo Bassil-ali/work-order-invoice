@@ -62,12 +62,8 @@ class UserRoleController extends Controller
             {
                 $data = $request->except("_token", "_method");
             			  		$userrole = UserRole::create($data); 
-
-			return successResponseJson([
-				"message" => trans("admin.added"),
-				"data" => $userrole,
-			]);
-			 }
+                $redirect = isset($request["add_back"])?"/create":"";
+                return redirectWithSuccess(aurl('userrole'.$redirect), trans('admin.added')); }
 
             /**
              * Display the specified resource.
@@ -129,13 +125,9 @@ class UserRoleController extends Controller
               }
               $data = $this->updateFillableColumns(); 
               UserRole::where('id',$id)->update($data);
-
-              $userrole = UserRole::find($id);
-              return successResponseJson([
-               "message" => trans("admin.updated"),
-               "data" => $userrole,
-              ]);
-			}
+              $redirect = isset($request["save_back"])?"/".$id."/edit":"";
+              return redirectWithSuccess(aurl('userrole'.$redirect), trans('admin.updated'));
+            }
 
             /**
              * Baboon Script By [it v 1.6.40]

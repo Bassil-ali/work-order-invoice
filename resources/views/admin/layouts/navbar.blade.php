@@ -46,9 +46,11 @@
         </a>
         <div class="dropdown-menu dropdown-menu-lg  languages {{ app('l') == 'ar'?'dropdown-menu-right':'dropdown-menu-left' }}">
           @foreach(L::all() as $l)
-            <a href="{{aurl('lang/'.$l)}}" class="dropdown-item">
-            <i class="fas fa-language"></i> {{trans('admin.'.$l)}} </a>
-        @endforeach
+          @if($l != 'fr')
+         <a href="{{aurl('lang/'.$l)}}" class="dropdown-item">
+         <i class="fas fa-language"></i> {{trans('admin.'.$l)}} </a>
+         @endif
+     @endforeach
         </div>
       </li>
       <!-- Language Dropdown Menu End-->

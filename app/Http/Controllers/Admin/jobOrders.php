@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use App\DataTables\jobOrdersDataTable;
 use Carbon\Carbon;
 use App\Models\jobOrder;
+use App\Models\UserRole;
 
 use App\Http\Controllers\Validations\jobOrdersRequest;
 // Auto Controller Maker By Baboon Script
@@ -82,6 +83,7 @@ $data['admin_id'] = admin()->id();
             public function show($id)
             {
         		$joborders =  jobOrder::find($id);
+           
         		return is_null($joborders) || empty($joborders)?
         		backWithError(trans("admin.undefinedRecord"),aurl("joborders")) :
         		view('admin.joborders.show',[
@@ -99,14 +101,14 @@ $data['admin_id'] = admin()->id();
             public function edit($id)
             {
         		$joborders =  jobOrder::find($id);
+           
+            $userRole = UserRole::where('user_name',admin()->id())->first();
+         //  dd($userRole);
         		return is_null($joborders) || empty($joborders)?
         		backWithError(trans("admin.undefinedRecord"),aurl("joborders")) :
-        		view('admin.joborders.edit',[
-				  'title'=>trans('admin.edit'),
-				  'joborders'=>$joborders
+        		view('admin.joborders.edit',['title'=>trans('admin.edit'),'joborders'=>$joborders,'userRole'=>$userRole
         		]);
             }
-
 
             /**
              * Baboon Script By [it v 1.6.40]

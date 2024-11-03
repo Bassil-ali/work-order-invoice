@@ -1,7 +1,7 @@
 @extends('admin.index')
 @section('content')
 
-@include("admin.layouts.components.submit_form_ajax",["form"=>"#userrole"])
+
 <div class="card card-dark">
 	<div class="card-header">
 		<h3 class="card-title">
@@ -70,7 +70,7 @@
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
 		<div class="form-group">
 				{!! Form::label('user_role',trans('admin.user_role'),['class'=>'control-label']) !!}
-{!! Form::select('user_role',['entry'=>trans('admin.entry'),'manager'=>trans('admin.manager'),'specifcation'=>trans('admin.specifcation'),'desighn'=>trans('admin.desighn'),'printer'=>trans('admin.printer'),'cover'=>trans('admin.cover'),'printer_cover'=>trans('admin.printer_cover'),'after-print'=>trans('admin.after-print'),], $userrole->user_role ,['class'=>'form-control select2','placeholder'=>trans('admin.user_role')]) !!}
+{!! Form::select('user_role',['entry'=>trans('admin.entry'),'manager'=>trans('admin.manager'),'specifcation'=>trans('admin.specifcation'),'desighn'=>trans('admin.desighn'),'printer'=>trans('admin.printer'),'cover'=>trans('admin.cover'),'printer_cover'=>trans('admin.printer_cover'),'after_print'=>trans('admin.after_print'),'printer_digital'=>trans('admin.printer_digital'),], $userrole->user_role ,['class'=>'form-control select2','placeholder'=>trans('admin.user_role')]) !!}
 		</div>
 </div>
 

@@ -97,7 +97,8 @@ class UserRoleDataTable extends DataTable
             'printer'=>trans('admin.printer'),
             'cover'=>trans('admin.cover'),
             'printer_cover'=>trans('admin.printer_cover'),
-            'after-print'=>trans('admin.after-print'),
+            'after_print'=>trans('admin.after_print'),
+            'printer_digital'=>trans('admin.printer_digital'),
             ]) . "
 
 

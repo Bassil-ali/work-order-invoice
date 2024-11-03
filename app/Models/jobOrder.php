@@ -54,6 +54,19 @@ protected $fillable = [
 
         'cover_notes',
         'cover_created_by',
+        'color_lieutenant',
+
+        'lieutenant_text',
+        'cover_color',
+
+        'Book_cover_text',
+        'Printing_digital_ctreated_by',
+        'The_heel',
+
+        'Slovenia',
+
+        'Slovenia_text',
+        'after_printing',
 		'created_at',
 		'updated_at',
 		'deleted_at',

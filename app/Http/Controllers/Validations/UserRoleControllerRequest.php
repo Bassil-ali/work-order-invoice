@@ -26,14 +26,14 @@ class UserRoleControllerRequest extends FormRequest {
 	protected function onCreate() {
 		return [
              'user_name'=>'required',
-             'user_role'=>'required|in:entry,manager,specifcation,desighn,printer,cover,printer_cover,after_print,printer_digital',
+             'user_role'=>'required|in:entry,manager,specifcation,desighn,printer,cover,printer_cover,after-print',
 		];
 	}
 
 	protected function onUpdate() {
 		return [
              'user_name'=>'required',
-             'user_role'=>'required|in:entry,manager,specifcation,desighn,printer,cover,printer_cover,after_print,printer_digital',
+             'user_role'=>'required|in:entry,manager,specifcation,desighn,printer,cover,printer_cover,after-print',
 		];
 	}
 

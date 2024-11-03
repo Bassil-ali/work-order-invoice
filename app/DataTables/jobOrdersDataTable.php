@@ -30,6 +30,10 @@ class jobOrdersDataTable extends DataTable
             ->addColumn('fold_the_book', '{{ trans("admin.".$fold_the_book) }}')
             ->addColumn('cover_pallet_measurement', '{{ trans("admin.".$cover_pallet_measurement) }}')
             ->addColumn('cover_pallet_measurement_type', '{{ trans("admin.".$cover_pallet_measurement_type) }}')
+            ->addColumn('color_lieutenant', '{{ trans("admin.".$color_lieutenant) }}')
+            ->addColumn('cover_color', '{{ trans("admin.".$cover_color) }}')
+            ->addColumn('The_heel', '{{ trans("admin.".$The_heel) }}')
+            ->addColumn('Slovenia', '{{ trans("admin.".$Slovenia) }}')
    		->addColumn('created_at', '{{ date("Y-m-d H:i:s",strtotime($created_at)) }}')   		->addColumn('updated_at', '{{ date("Y-m-d H:i:s",strtotime($updated_at)) }}')            ->addColumn('checkbox', '<div  class="icheck-danger">
                   <input type="checkbox" class="selected_data" name="selected_data[]" id="selectdata{{ $id }}" value="{{ $id }}" >
                   <label for="selectdata{{ $id }}"></label>
@@ -70,22 +74,6 @@ class jobOrdersDataTable extends DataTable
                 "lengthMenu" => [[10, 25, 50,100, -1], [10, 25, 50,100, trans('admin.all_records')]],
                 'buttons' => [
                 	[
-					  'extend' => 'print',
-					  'className' => 'btn btn-outline',
-					  'text' => '<i class="fa fa-print"></i> '.trans('admin.print')
-					 ],	[
-					'extend' => 'excel',
-					'className' => 'btn btn-outline',
-					'text' => '<i class="fa fa-file-excel"> </i> '.trans('admin.export_excel')
-					],	[
-					'extend' => 'csv',
-					'className' => 'btn btn-outline',
-					'text' => '<i class="fa fa-file-excel"> </i> '.trans('admin.export_csv')
-					],	[
-					 'extend' => 'pdf',
-					 'className' => 'btn btn-outline',
-					 'text' => '<i class="fa fa-file-pdf"> </i> '.trans('admin.export_pdf')
-					],	[
 					'extend' => 'reload',
 					'className' => 'btn btn-outline',
 					'text' => '<i class="fa fa-sync-alt"></i> '.trans('admin.reload')
@@ -104,6 +92,8 @@ class jobOrdersDataTable extends DataTable
 
 
             
+            ". filterElement('1,3,1,4,1,5,1,6', 'input') . "
+
             
 
 	            }",
@@ -172,6 +162,31 @@ class jobOrdersDataTable extends DataTable
                 'width'          => '10px',
                 'aaSorting'      => 'none'
             ],
+				[
+                 'name'=>'photo',
+                 'data'=>'photo',
+                 'title'=>trans('admin.photo'),
+		    ],
+				[
+                 'name'=>'customer_name',
+                 'data'=>'customer_name',
+                 'title'=>trans('admin.customer_name'),
+		    ],
+				[
+                 'name'=>'business_name',
+                 'data'=>'business_name',
+                 'title'=>trans('admin.business_name'),
+		    ],
+				[
+                 'name'=>'day_date',
+                 'data'=>'day_date',
+                 'title'=>trans('admin.day_date'),
+		    ],
+				[
+                 'name'=>'delivery_date',
+                 'data'=>'delivery_date',
+                 'title'=>trans('admin.delivery_date'),
+		    ],
             [
 	                'name' => 'created_at',
 	                'data' => 'created_at',
