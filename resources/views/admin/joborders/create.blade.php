@@ -106,6 +106,8 @@
 		{!! Form::select('Payment_method',['Bank Card'=>trans('admin.Bank Card'),'Electronic Transfer'=>trans('admin.Electronic Transfer'),'Receivables Checks'=>trans('admin.Receivables Checks'),'Receivables Account'=>trans('admin.Receivables Account'),'Cash Instant Check'=>trans('admin.Cash Instant Check'),],old('Payment_method'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
 	</div>
 </div>
+
+
 <div class="justify-content-center">
     <h2>المواصفات</h2>
 </div>

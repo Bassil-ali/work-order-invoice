@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 // Baboon Maker has been Created And Developed By  [it v 1.6.40]
 // Copyright Reserved  [it v 1.6.40]
 class jobOrder extends Model {
-	use SoftDeletes;
+
+	use SoftDeletes;
 	protected $dates = ['deleted_at'];
 
 protected $table    = 'job_orders';
@@ -67,6 +68,7 @@ protected $fillable = [
 
         'Slovenia_text',
         'after_printing',
+        'approve',
 		'created_at',
 		'updated_at',
 		'deleted_at',

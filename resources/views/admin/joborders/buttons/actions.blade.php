@@ -7,6 +7,12 @@
 	<div class="dropdown-menu" role="menu">
 		<a href="{{ aurl('/joborders/'.$id.'/edit')}}" class="dropdown-item" ><i class="fas fa-edit"></i> {{trans('admin.edit')}}</a>
 		<a href="{{ aurl('/joborders/'.$id)}}" class="dropdown-item" ><i class="fa fa-eye"></i> {{trans('admin.show')}}</a>
+		{{-- @if(App\Models\UserRole::where('user_name', admin()->id)->value('user_role') == 'entry') --}}
+		<a href="{{ aurl('/joborders_print/'.$id) }}" class="dropdown-item">
+			<i class="fa fa-eye"></i> {{ trans('admin.print') }}
+		</a>
+	   {{-- @endif --}}
+	
 		<div class="dropdown-divider"></div>
 		<a data-toggle="modal" data-target="#delete_record{{$id}}" href="#" class="dropdown-item">
 		<i class="fas fa-trash"></i> {{trans('admin.delete')}}</a>

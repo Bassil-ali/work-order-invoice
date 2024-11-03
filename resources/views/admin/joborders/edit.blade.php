@@ -62,6 +62,7 @@
 <div class="row">
 @if($userRole)
 
+<div id="entry">
 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 photo">
     <div class="row">
         <div class="col-md-8">
@@ -134,7 +135,9 @@
     </div>
     <!-- /.form group -->
 </div>
-@if($userRole->user_role == 'manager' || $userRole->user_role == 'entry')
+</div>
+
+<div id="manager">
 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
     <div class="form-group">
         {!! Form::label('Price',trans('admin.Price'),['class'=>'control-label']) !!}
@@ -153,8 +156,18 @@
 {!! Form::select('Payment_method',['Bank Card'=>trans('admin.Bank Card'),'Electronic Transfer'=>trans('admin.Electronic Transfer'),'Receivables Checks'=>trans('admin.Receivables Checks'),'Receivables Account'=>trans('admin.Receivables Account'),'Cash Instant Check'=>trans('admin.Cash Instant Check'),], $joborders->Payment_method ,['class'=>'form-control select2','placeholder'=>trans('admin.Payment_method')]) !!}
 		</div>
 </div>
-@endif
-@if($userRole->user_role == 'specifcation' || $userRole->user_role == 'entry')
+<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+    <div class="form-group">
+        {!! Form::label('approve', trans('admin.approve')) !!}
+        {!! Form::select('approve', [
+            'approve' => trans('admin.approve'), 
+            'not_approve' => trans('admin.not_approve')
+        ], $joborders->approve, ['class' => 'form-control select2', 'placeholder' => trans('admin.approve')]) !!}
+    </div>
+</div>
+</div>
+
+<div id="specifcation">
 <div class="justify-content-center">
     <h2>المواصفات</h2>
 </div>
@@ -218,9 +231,9 @@
         {!! Form::text('notes', $joborders->notes ,['class'=>'form-control','placeholder'=>trans('admin.notes')]) !!}
     </div>
 </div>
-@endif
-@if($userRole->user_role == 'desighn' || $userRole->user_role == 'entry')
+</div>
 
+<div id="desighn">
 <div class="justify-content-center">
     <h2>التصميم والمونتاج</h2>
 </div>
@@ -296,8 +309,9 @@
         {!! Form::text('cover_created_by', $joborders->cover_created_by ,['class'=>'form-control','placeholder'=>trans('admin.cover_created_by')]) !!}
     </div>
 </div>
-@endif
-@if($userRole->user_role == 'printer' || $userRole->user_role == 'entry')
+</div>
+
+<div id="printer">
 <div class="justify-content-center">
     <h2>الطباعه اوفست</h2>
 </div>
@@ -325,8 +339,9 @@
         {!! Form::textarea('Book_cover_text', $joborders->Book_cover_text ,['class'=>'form-control','placeholder'=>trans('admin.Book_cover_text')]) !!}
     </div>
 </div>
-@endif
-@if($userRole->user_role == 'printer_digital' || $userRole->user_role == 'entry')
+</div>
+
+<div id="printer_digital">
 <div class="justify-content-center">
     <h2>الطباعــــــــــــة ( ديجتال )</h2>
 </div>
@@ -336,8 +351,9 @@
         {!! Form::textarea('Printing_digital_ctreated_by', $joborders->Printing_digital_ctreated_by ,['class'=>'form-control','placeholder'=>trans('admin.Printing_digital_ctreated_by')]) !!}
     </div>
 </div>
-@endif
-@if($userRole->user_role == 'cover' || $userRole->user_role == 'entry')
+</div>
+
+<div id="cover">
 <div class="justify-content-center">
     <h2>لتجليـــــــد و السلوفان</h2>
 </div>
@@ -359,8 +375,9 @@
         {!! Form::text('Slovenia_text', $joborders->Slovenia_text ,['class'=>'form-control','placeholder'=>trans('admin.Slovenia_text')]) !!}
     </div>
 </div>
-@endif
-@if($userRole->user_role == 'after-print' || $userRole->user_role == 'entry')
+</div>
+
+<div id="after_print">
 <div class="justify-content-center">
     <h2>ما بعد الطباعة</h2>
 </div>
@@ -370,7 +387,8 @@
         {!! Form::textarea('after_printing', $joborders->after_printing ,['class'=>'form-control','placeholder'=>trans('admin.after_printing')]) !!}
     </div>
 </div>
-@endif
+</div>
+
 @endif
 </div>
 		<!-- /.row -->
@@ -381,4 +399,32 @@
 {!! Form::close() !!}
 </div>
 </div>
+<script>
+    const userRole = @json($userRole->user_role);
+</script>
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+    const rolesToDivs = {
+        entry: ["entry", "specifcation", "desighn", "printer", "printer_digital", "cover", "after_print"],
+        specifcation: ["specifcation", "entry"],
+        desighn: ["desighn", "entry"],
+        printer: ["printer", "entry"],
+        printer_digital: ["printer_digital", "entry"],
+        cover: ["cover", "entry"],
+        after_print: ["after_print", "entry"],
+    };
+
+    // Hide all elements initially
+    Object.values(rolesToDivs).flat().forEach(id => {
+        document.getElementById(id).classList.add("hidden");
+    });
+
+    // Show elements based on the user's role
+    (rolesToDivs[userRole] || []).forEach(id => {
+        document.getElementById(id).classList.remove("hidden");
+    });
+});
+
+</script>
 @endsection

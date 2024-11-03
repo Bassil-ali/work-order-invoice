@@ -252,5 +252,7 @@
 		"user_role"	=>		"user role",
 		"user_name"	=>		"user name",
 		"userrole"	=>		"user role",
+		"approve" => 'Approve',
+		"not_approve" => 'Not approve',
 
 ];

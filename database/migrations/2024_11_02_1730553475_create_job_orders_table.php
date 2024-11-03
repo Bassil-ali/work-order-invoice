@@ -56,8 +56,10 @@ $table->foreignId("admin_id")->constrained("admins")->onUpdate("cascade")->onDel
             $table->enum('Slovenia',['shiny','matte']);
             $table->string('Slovenia_text')->nullable();
             $table->longtext('after_printing')->nullable();
+            $table->enum('approve',['approve','not_approve']);
 			$table->softDeletes();
-			$table->timestamps();
+
+			$table->timestamps();
         });
     }
 

@@ -19,26 +19,43 @@ class jobOrdersDataTable extends DataTable
     {
         return datatables($query)
             ->addColumn('actions', 'admin.joborders.buttons.actions')
-            ->addColumn('photo', '<a href="{{ it()->url($photo) }}" target="_blank"><i class="fa fa-download fa-2x"></i></a>')
-            ->addColumn('Payment_method', '{{ trans("admin.".$Payment_method) }}')
-            ->addColumn('type_of_publication', '{{ trans("admin.".$type_of_publication) }}')
-            ->addColumn('Measurement', '{{ trans("admin.".$Measurement) }}')
-            ->addColumn('Number_of_interior_colors', '{{ trans("admin.".$Number_of_interior_colors) }}')
-            ->addColumn('Number_of_colors_Cover_or_commercial', '{{ trans("admin.".$Number_of_colors_Cover_or_commercial) }}')
-            ->addColumn('Pallet_measuring_notes', '{{ trans("admin.".$Pallet_measuring_notes) }}')
-            ->addColumn('number_type', '{{ trans("admin.".$number_type) }}')
-            ->addColumn('fold_the_book', '{{ trans("admin.".$fold_the_book) }}')
-            ->addColumn('cover_pallet_measurement', '{{ trans("admin.".$cover_pallet_measurement) }}')
-            ->addColumn('cover_pallet_measurement_type', '{{ trans("admin.".$cover_pallet_measurement_type) }}')
-            ->addColumn('color_lieutenant', '{{ trans("admin.".$color_lieutenant) }}')
-            ->addColumn('cover_color', '{{ trans("admin.".$cover_color) }}')
-            ->addColumn('The_heel', '{{ trans("admin.".$The_heel) }}')
-            ->addColumn('Slovenia', '{{ trans("admin.".$Slovenia) }}')
-   		->addColumn('created_at', '{{ date("Y-m-d H:i:s",strtotime($created_at)) }}')   		->addColumn('updated_at', '{{ date("Y-m-d H:i:s",strtotime($updated_at)) }}')            ->addColumn('checkbox', '<div  class="icheck-danger">
-                  <input type="checkbox" class="selected_data" name="selected_data[]" id="selectdata{{ $id }}" value="{{ $id }}" >
-                  <label for="selectdata{{ $id }}"></label>
-                </div>')
-            ->rawColumns(['checkbox','actions',"photo",]);
+
+            ->addColumn('photo', '<a href="{{ it()->url($photo) }}" target="_blank"><i class="fa fa-download fa-2x"></i></a>')
+
+            ->addColumn('Payment_method', '{{ trans("admin.".$Payment_method) }}')
+
+            ->addColumn('type_of_publication', '{{ trans("admin.".$type_of_publication) }}')
+
+            ->addColumn('Measurement', '{{ trans("admin.".$Measurement) }}')
+
+            ->addColumn('Number_of_interior_colors', '{{ trans("admin.".$Number_of_interior_colors) }}')
+
+            ->addColumn('Number_of_colors_Cover_or_commercial', '{{ trans("admin.".$Number_of_colors_Cover_or_commercial) }}')
+
+            ->addColumn('Pallet_measuring_notes', '{{ trans("admin.".$Pallet_measuring_notes) }}')
+
+            ->addColumn('number_type', '{{ trans("admin.".$number_type) }}')
+
+            ->addColumn('fold_the_book', '{{ trans("admin.".$fold_the_book) }}')
+
+            ->addColumn('cover_pallet_measurement', '{{ trans("admin.".$cover_pallet_measurement) }}')
+
+            ->addColumn('cover_pallet_measurement_type', '{{ trans("admin.".$cover_pallet_measurement_type) }}')
+
+            ->addColumn('color_lieutenant', '{{ trans("admin.".$color_lieutenant) }}')
+
+            ->addColumn('cover_color', '{{ trans("admin.".$cover_color) }}')
+
+            ->addColumn('The_heel', '{{ trans("admin.".$The_heel) }}')
+
+            ->addColumn('Slovenia', '{{ trans("admin.".$Slovenia) }}')
+            ->addColumn('created_at', '{{ date("Y-m-d H:i:s", strtotime($created_at)) }}')
+            ->addColumn('updated_at', '{{ date("Y-m-d H:i:s", strtotime($updated_at)) }}')
+            
+           
+
+            ->rawColumns(['checkbox', 'actions', 'photo','approve']);
+            
     }
   
 
@@ -187,6 +204,15 @@ class jobOrdersDataTable extends DataTable
                  'data'=>'delivery_date',
                  'title'=>trans('admin.delivery_date'),
 		    ],
+
+            [
+                'name'=>'approve',
+                'data'=>'approve',
+                'title'=>trans('admin.approve'),
+           ],
+
+         
+           
             [
 	                'name' => 'created_at',
 	                'data' => 'created_at',
@@ -205,6 +231,8 @@ class jobOrdersDataTable extends DataTable
 	                'searchable' => false,
 	                'orderable'  => false,
 	            ],
+              
+              
 	                    [
 	                'name' => 'actions',
 	                'data' => 'actions',

@@ -42,8 +42,11 @@
 </div>
 {!! Form::close() !!}
 
+
 @push('js')
 {!! $dataTable->scripts() !!}
+
+
 @endpush
 		@endsection
 		

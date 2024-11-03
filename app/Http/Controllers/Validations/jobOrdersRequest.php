@@ -64,12 +64,13 @@ class jobOrdersRequest extends FormRequest {
              'Slovenia'=>'required|in:shiny,matte',
              'Slovenia_text'=>'',
              'after_printing'=>'',
+             'approve' => ''
 		];
 	}
 
 	protected function onUpdate() {
 		return [
-             'photo'=>'required',
+             'photo'=>'',
              'customer_name'=>'required',
              'business_name'=>'required',
              'day_date'=>'required',
@@ -108,6 +109,7 @@ class jobOrdersRequest extends FormRequest {
              'Slovenia'=>'required|in:shiny,matte',
              'Slovenia_text'=>'',
              'after_printing'=>'',
+             'approve' => ''
 		];
 	}
 
@@ -164,6 +166,7 @@ class jobOrdersRequest extends FormRequest {
              'Slovenia'=>trans('admin.Slovenia'),
              'Slovenia_text'=>trans('admin.Slovenia_text'),
              'after_printing'=>trans('admin.after_printing'),
+             'approve' =>trans('admin.approve'),
 		];
 	}
 

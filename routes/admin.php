@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\jobOrders;
 
 \L::Panel(app('admin'));///SetLangredirecttoadmin
 \L::LangNonymous();//RunRouteLang'namespace'=>'Admin',
@@ -47,6 +48,8 @@ Route::group(['prefix'=>app('admin'),'middleware'=>'Lang'],function(){
 		Route::post('joborders/multi_delete','Admin\jobOrders@multi_delete');
 		Route::resource('bookfiles','Admin\BookFilesController');
 		Route::post('bookfiles/multi_delete','Admin\BookFilesController@multi_delete');
+		Route::get('joborders_print/{id}','Admin\jobOrders@print');
+
 		
 		
 		////////AdminRoutes/*End*///////////////
