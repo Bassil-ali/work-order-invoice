@@ -19,8 +19,10 @@ class BookFilesDataTable extends DataTable
     {
         return datatables($query)
             ->addColumn('actions', 'admin.bookfiles.buttons.actions')
-            ->addColumn('file', '<a href="{{ it()->url($file) }}" target="_blank"><i class="fa fa-download fa-2x"></i></a>')
-   		->addColumn('created_at', '{{ date("Y-m-d H:i:s",strtotime($created_at)) }}')   		->addColumn('updated_at', '{{ date("Y-m-d H:i:s",strtotime($updated_at)) }}')            ->addColumn('checkbox', '<div  class="icheck-danger">
+
+            ->addColumn('file', '<a href="{{ it()->url($file) }}" target="_blank"><i class="fa fa-download fa-2x"></i></a>')
+
+   		->addColumn('created_at', '{{ date("Y-m-d H:i:s",strtotime($created_at)) }}')   		->addColumn('updated_at', '{{ date("Y-m-d H:i:s",strtotime($updated_at)) }}')            ->addColumn('checkbox', '<div  class="icheck-danger">
                   <input type="checkbox" class="selected_data" name="selected_data[]" id="selectdata{{ $id }}" value="{{ $id }}" >
                   <label for="selectdata{{ $id }}"></label>
                 </div>')
@@ -63,19 +65,7 @@ class BookFilesDataTable extends DataTable
 					  'extend' => 'print',
 					  'className' => 'btn btn-outline',
 					  'text' => '<i class="fa fa-print"></i> '.trans('admin.print')
-					 ],	[
-					'extend' => 'excel',
-					'className' => 'btn btn-outline',
-					'text' => '<i class="fa fa-file-excel"> </i> '.trans('admin.export_excel')
-					],	[
-					'extend' => 'csv',
-					'className' => 'btn btn-outline',
-					'text' => '<i class="fa fa-file-excel"> </i> '.trans('admin.export_csv')
-					],	[
-					 'extend' => 'pdf',
-					 'className' => 'btn btn-outline',
-					 'text' => '<i class="fa fa-file-pdf"> </i> '.trans('admin.export_pdf')
-					],	[
+					 ],		[
 					'extend' => 'reload',
 					'className' => 'btn btn-outline',
 					'text' => '<i class="fa fa-sync-alt"></i> '.trans('admin.reload')

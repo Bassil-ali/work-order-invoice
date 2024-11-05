@@ -5,7 +5,7 @@ use App\DataTables\BookFilesDataTable;
 use Carbon\Carbon;
 use App\Models\BookFiles;
 
-use App\Http\Controllers\Validations\BookFilesControllerRequest;
+use App\Http\Controllers\Validations\BookFilesRequest;
 // Auto Controller Maker By Baboon Script
 // Baboon Maker has been Created And Developed By  [it v 1.6.40]
 // Copyright Reserved  [it v 1.6.40]
@@ -58,7 +58,7 @@ class BookFilesController extends Controller
              * @param  \Illuminate\Http\Request  $request
              * @return \Illuminate\Http\Response Or Redirect
              */
-            public function store(BookFilesControllerRequest $request)
+            public function store(BookFilesRequest $request)
             {
                 $data = $request->except("_token", "_method");
             	$data['file'] = "";
@@ -117,7 +117,7 @@ class BookFilesController extends Controller
              */
             public function updateFillableColumns() {
 				$fillableCols = [];
-				foreach (array_keys((new BookFilesControllerRequest)->attributes()) as $fillableUpdate) {
+				foreach (array_keys((new BookFilesRequest)->attributes()) as $fillableUpdate) {
 					if (!is_null(request($fillableUpdate))) {
 						$fillableCols[$fillableUpdate] = request($fillableUpdate);
 					}
@@ -125,7 +125,7 @@ class BookFilesController extends Controller
 				return $fillableCols;
 			}
 
-            public function update(BookFilesControllerRequest $request,$id)
+            public function update(BookFilesRequest $request,$id)
             {
               // Check Record Exists
               $bookfiles =  BookFiles::find($id);

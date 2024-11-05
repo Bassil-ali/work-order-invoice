@@ -41,15 +41,15 @@ h1{
 }
 label , .font-2 , table th:not(.first table th ){
     color: #6d6e71;
-     font-size: 18px; 
+     font-size: 17px; 
      font-family:'Muna-Black' ;
 
 }
 
-.table-responsive {
+/* .table-responsive {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-}
+} */
 .cc{
     grid-template-columns: auto 1fr 1fr;
 }

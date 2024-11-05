@@ -218,9 +218,9 @@ class jobOrders extends Controller
 
   public function print($id)
   {
-    $joborders = jobOrder::find($id);
-    dd($joborders);
-    return view('admin.joborders.print', $joborders);
+    $jobOrder = jobOrder::find($id);
+    //dd($joborders);
+    return view('admin.joborders.print', ['jobOrder' => $jobOrder]);
 
   }
 
