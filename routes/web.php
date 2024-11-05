@@ -19,9 +19,7 @@ Route::group(['middleware' => 'auth'],
 		Route::any('logout', 'Auth\LoginController@logout')->name('web.logout');
 	});
 
-Route::get('/', function () {
-	return view('welcome');
-});
+Route::get('/', 'Admin\Dashboard@home');
 
 Route::middleware(ProtectAgainstSpam::class)->group(function () {
 	Auth::routes(['verify' => true]);
@@ -30,3 +28,4 @@ Route::middleware(ProtectAgainstSpam::class)->group(function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', 'Admin\Dashboard@home');
