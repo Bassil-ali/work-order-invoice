@@ -1,48 +1,56 @@
-@font-face{
-    font-family:'Muna-Black' ;
+@font-face {
+    font-family: 'Muna-Black';
     src: url('../fonts/MunaBlack.ttf');
 }
-@font-face{
-    font-family:'Muna-Bold' ;
+
+@font-face {
+    font-family: 'Muna-Bold';
     src: url('../fonts/Muna-Bold.ttf');
 }
-@font-face{
-    font-family:'Almarai-Bold' ;
+
+@font-face {
+    font-family: 'Almarai-Bold';
     src: url('../fonts/Almarai-Bold.ttf');
 }
 
-body , .font-2{
-    font-family:   'Times New Roman', Times, serif;
+body,
+.font-2 {
+    font-family: 'Times New Roman', Times, serif;
 }
 
-h1{
-    font-size: 22px;
-    font-family:'Almarai-Bold' ;
-   color: #2A3A4A;
-   padding-bottom: 5px;
-   border-bottom: 2px solid #707070;
+h1 {
+    font-size: 18px;
+    font-family: 'Almarai-Bold';
+    color: #2A3A4A;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #707070;
 }
-.form-check-label{
-   /*  border-left: 2px solid #5f5f5f; */
+
+.form-check-label {
+    /*  border-left: 2px solid #5f5f5f; */
     color: #6d6e71;
-    padding: 0 5px;
 }
+
 .font {
-    font-family:'Almarai-Bold' ;
-   font-size: 18px;
-   color: #212121;
+    font-family: 'Almarai-Bold';
+    font-size: 15px;
+    color: #212121;
 }
-.logo{
+
+.logo {
     border-bottom: 2px solid #1e3c28;
 }
 
-.img-job{
+.img-job {
     border: 2px solid #1e3c28;
 }
-label , .font-2 , table th:not(.first table th ){
+
+label,
+.font-2,
+table th:not(.first table th) {
     color: #6d6e71;
-     font-size: 17px; 
-     font-family:'Muna-Black' ;
+    font-size: 13px;
+    font-family: 'Muna-Black';
 
 }
 
@@ -50,52 +58,59 @@ label , .font-2 , table th:not(.first table th ){
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
 } */
-.cc{
+.cc {
     grid-template-columns: auto 1fr 1fr;
 }
-.mb_6{
+
+.mb_6 {
     margin-bottom: -4px;
 }
-.table td, .table th{
+
+.table td,
+.table th {
     border: 1px solid #00ae4b;
     vertical-align: middle;
 }
+
 table {
     border-spacing: 0px !important;
 }
-.table-bordered{
-    border: 2px solid #00ae4b;
-}
-.card-1{
+
+.table-bordered {
     border: 2px solid #00ae4b;
 }
 
-.card-1 .d-grid:first-of-type{
+.card-1 {
+    border: 2px solid #00ae4b;
+}
+
+.card-1 .d-grid:first-of-type {
     grid-template-columns: auto 1fr;
 }
-.card-1 .d-grid:last-of-type{
-    grid-template-columns: auto auto auto auto auto auto auto ;
-}
-.first .form-check-input{
-    position: absolute;
-    top: 8%;
-    right: 13px;
-    border: 1px solid #535353;
+
+.card-1 .d-grid:last-of-type {
+    grid-template-columns: auto auto auto auto auto auto auto;
 }
 
-.first th {
-    background-color: #e8f3e7;
-    position: relative;
-    width: 50px;
+.thead .form-check-input {
+    position: absolute;
+    top: 8%;
+    left: 12px;
+    border: 1px solid #535353;
+    margin-top: 0;
 }
-.first th span{
+
+
+.first {
     position: absolute;
     transform: rotate(-90deg);
     line-height: 0;
     width: 100%;
     right: 0px;
-    top: 33%;
+    top: 30%;
+    font-size: 13px;
 }
+
 .form-check-input:checked {
     background-color: #66ad82;
     border-color: #66ad82;
@@ -104,62 +119,121 @@ table {
 .form-check-input[type="checkbox"] {
     border-radius: 0;
 }
-.form-check-input{
-    width: 1.2em !important;
-    height: 1.2em !important;
-    margin-top: 0;
-}
+
+
 .form-check-input:focus {
     border-color: #66ad82;
     outline: 0;
     box-shadow: 0 0 0 .25rem #66ad8233;
 }
-.title h2{
+
+.title h3 {
     background: #acd8af;
     text-align: center;
     padding: 10px 30px;
     border-radius: 15px 15px 0 0;
     display: inline-block;
-    font-size: 22px;
+    font-size: 17px;
     font-weight: 600;
-    font-family:'Almarai-Bold' ;
+    font-family: 'Almarai-Bold';
 }
-.f-famliy{
-    font-family:'Almarai-Bold' ;
 
+.f-famliy {
+    font-family: 'Almarai-Bold';
 }
-/* .table-bordered{
-    border: none !important;
-} */
-.form-control-plaintext{
+
+.form-control-plaintext {
     border-bottom: 1px dashed #222222;
 }
-textarea.form-control{
+
+textarea.form-control {
     border: 1px dashed #222222;
 
 }
-textarea.form-control:focus , textarea.form-control:active{
+
+textarea.form-control:focus,
+textarea.form-control:active {
     box-shadow: none !important;
     border-color: #222222;
     outline: 0;
 }
+
 @media (max-width: 768px) {
-    .card-1 .d-grid:last-of-type{
-        grid-template-columns: auto auto auto ;
+    .card-1 .d-grid:last-of-type {
+        grid-template-columns: auto auto auto;
     }
-    .title h2{
-        font-size: 18px !important;
+
+    .title h2 {
+        font-size: 15px !important;
     }
-    label, .font-2, table th:not(.first table th ) , .font{
-        font-size: 16px !important;
+
+    label,
+    .font-2,
+    table th:not(.first table th),
+    .font {
+        font-size: 13px !important;
     }
-    .first th{
+
+    .first th {
         padding: 10px 25px;
     }
-    .first .form-check-input{
+
+    .first .form-check-input {
         position: absolute;
         top: 7%;
         right: 15px;
     }
-    
+
+}
+
+@media (max-width: 920px) {
+    .form-check {
+        padding-right: 1.1em !important;
+    }
+}
+
+
+.tbody .th {
+    font-weight: 600;
+    /*  border-left: 1px solid #00ae4b; */
+    font-size: 13px;
+}
+
+.tbody .row:not(:last-of-type) {
+    border-bottom: 1px solid #00ae4b;
+}
+
+.br-bl {
+    border-left: 1px solid #00ae4b;
+    border-right: 1px solid #00ae4b;
+}
+
+.br {
+    border-right: 1px solid #00ae4b;
+}
+
+.bl {
+    border-left: 1px solid #00ae4b;
+}
+
+@media print {
+    .thead {
+        background: #e8f3e7;
+    }
+}
+
+.thead {
+    border-left: 1px solid #00ae4b;
+    background: #e8f3e7;
+    height: 100%;
+    text-align: center;
+    padding: 6px 0;
+    position: relative;
+    width: 40px;
+    font-family: 'Almarai-Bold';
+}
+
+.custom-tabel {
+    margin-top: 10px;
+    border: 2px solid #00ae4b;
 }
