@@ -37,7 +37,7 @@ To get started with this application, follow these steps:
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/your-username/ecommerce-laravel.git
+    git clone git@github.com:Bassil-ali/work-order-invoice.git
     cd ecommerce-laravel
     ```
 
