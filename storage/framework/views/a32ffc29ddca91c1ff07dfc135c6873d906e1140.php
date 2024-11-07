@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="<?php echo e(url('assets')); ?>/invoice/css/bootstrap.rtl.min.css" />
   <link rel="stylesheet" href="<?php echo e(url('assets')); ?>/invoice/css/style.css" />
   <title>أمر عمل </title>
+ 
 </head>
 
 <body>
@@ -120,13 +121,13 @@
       
 
     <!-----------------------main  ----------------------------->
-<div class="container text-right mt-2">
+   <div class="container text-right mt-2">
         <div class="row">
             <div class="col-12">
                 <div class="table-1 table-responsive">
                     <div class="title text-center">
                         <h2 class="mb-0">المواصفات Description</h2>
-                    </div>
+                      </div>
                     <table class="table table-bordered">
                         <tbody>
                             <tr class="first">
@@ -222,56 +223,72 @@
                                   </th>
                                   <td colspan="2">
                                     <div class="d-flex justify-content-between">
-                                      <div class="d-flex">
-                                            <label class="form-check-label mt-1">الداخلي</label>
-                                            <?php $__currentLoopData = ['C', 'M', 'Y', 'K', 'CMYK']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $color): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <div class="form-check mt-1 me-3">
-                                                <label class="form-check-label" for="flexCheckDefault"
-                                                for="flexCheckDefault"
-                                                    style="color: <?php echo e($color == 'C' ? '#00adee' : ($color == 'M' ? '#ed008c' : ($color == 'Y' ? '#fed400' : '#221e1f'))); ?>">
-                                                    <?php if($color === 'CMYK'): ?>
-                                                    <span style="color: #00adee">C</span><span
-                                                        style="color: #ed008c">M</span><span
-                                                        style="color: #fed400">Y</span><span style="color: #221e1f">C</span>
-                                                    <?php else: ?>
-                                                    <?php echo e($color); ?>
-
-                                                    <?php endif; ?>
+                                        <div class="d-flex align-items-center">
+                                            <label class="form-check-label mt-1 me-3">الداخلي</label>
+                                        
+                                            <!-- Separate d-flex container for CMYK -->
+                                            <div class="form-check d-flex ">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    <span style="color: #00adee">C</span>
+                                                    <span style="color: #ed008c">M</span>
+                                                    <span style="color: #fed400">Y</span>
+                                                    <span style="color: #221e1f">K</span>
                                                 </label>
-                                                <input class="form-check-input" type="checkbox" value="<?php echo e($color); ?>"
-                                                    iid="flexCheckDefault" <?php echo e(in_array($color, explode(',',
-                                                    $jobOrder->Number_of_interior_colors ?? '')) ? 'checked' : ''); ?> />
+                                                <input class="form-check-input ms-2" type="checkbox" value="CMYK" id="flexCheckDefault"
+                                                    <?php echo e(in_array('CMYK', explode(',', $jobOrder->Number_of_interior_colors ?? '')) ? 'checked' : ''); ?> />
                                             </div>
+                                        </div>
+                                        
+                                        <!-- Separate d-flex container for individual colors: C, M, Y, K -->
+                                        <div class="d-flex">
+                                            <?php $__currentLoopData = ['C' => '#00adee', 'M' => '#ed008c', 'Y' => '#fed400', 'K' => '#221e1f']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $color => $colorCode): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <div class="form-check mt-1 me-3">
+                                                    <label class="form-check-label" for="flexCheck<?php echo e($color); ?>" style="color: <?php echo e($colorCode); ?>">
+                                                        <?php echo e($color); ?>
+
+                                                    </label>
+                                                    <input class="form-check-input" type="checkbox" value="<?php echo e($color); ?>" id="flexCheck<?php echo e($color); ?>"
+                                                        <?php echo e(in_array($color, explode(',', $jobOrder->Number_of_interior_colors ?? '')) ? 'checked' : ''); ?> />
+                                                </div>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </div>
+                                        
                                     </div>
                                 </td>
                                 <td colspan="2">
                                     <div class="d-flex justify-content-between">
-                                        <div class="d-flex">
-                                          <label class="form-check-label mt-1" for="flexCheckDefault">
-                                            غلاف (أو تجاري)
-                                          </label>
-                                            <?php $__currentLoopData = ['C', 'M', 'Y', 'K', 'CMYK']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $color): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <div class="form-check mt-1 me-3">
-                                                <label class="form-check-label" for="flexCheckDefault"
-                                                for="flexCheckDefault"
-                                                    style="color: <?php echo e($color == 'C' ? '#00adee' : ($color == 'M' ? '#ed008c' : ($color == 'Y' ? '#fed400' : '#221e1f'))); ?>">
-                                                    <?php if($color === 'CMYK'): ?>
-                                                    <span style="color: #00adee">C</span><span
-                                                        style="color: #ed008c">M</span><span
-                                                        style="color: #fed400">Y</span><span style="color: #221e1f">C</span>
-                                                    <?php else: ?>
-                                                    <?php echo e($color); ?>
-
-                                                    <?php endif; ?>
+                                        <div class="d-flex align-items-center">
+                                            <label class="form-check-label mt-1 me-3" for="flexCheckDefault">
+                                                غلاف (أو تجاري)
+                                            </label>
+                                        
+                                            <!-- Separate container for CMYK option -->
+                                            <div class="form-check  d-flex">
+                                                <label class="form-check-label" for="flexCheckCMYK">
+                                                    <span style="color: #00adee">C</span>
+                                                    <span style="color: #ed008c">M</span>
+                                                    <span style="color: #fed400">Y</span>
+                                                    <span style="color: #221e1f">K</span>
                                                 </label>
-                                                <input class="form-check-input" type="checkbox" value="<?php echo e($color); ?>"
-                                                    id="flexCheckDefault" <?php echo e(in_array($color, explode(',',
-                                                    $jobOrder->Number_of_colors_Cover_or_commercial ?? '')) ? 'checked' : ''); ?> />
+                                                <input class="form-check-input ms-2" type="checkbox" value="CMYK" id="flexCheckCMYK"
+                                                    <?php echo e(in_array('CMYK', explode(',', $jobOrder->Number_of_colors_Cover_or_commercial ?? '')) ? 'checked' : ''); ?> />
                                             </div>
+                                        </div>
+                                        
+                                        <!-- Separate container for individual colors: C, M, Y, K -->
+                                        <div class="d-flex ">
+                                            <?php $__currentLoopData = ['C' => '#00adee', 'M' => '#ed008c', 'Y' => '#fed400', 'K' => '#221e1f']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $color => $colorCode): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <div class="form-check mt-1 me-3">
+                                                    <label class="form-check-label" for="flexCheck<?php echo e($color); ?>" style="color: <?php echo e($colorCode); ?>">
+                                                        <?php echo e($color); ?>
+
+                                                    </label>
+                                                    <input class="form-check-input" type="checkbox" value="<?php echo e($color); ?>" id="flexCheck<?php echo e($color); ?>"
+                                                        <?php echo e(in_array($color, explode(',', $jobOrder->Number_of_colors_Cover_or_commercial ?? '')) ? 'checked' : ''); ?> />
+                                                </div>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </div>
+                                        
                                     </div>
                                 </td>
                             </tr>
