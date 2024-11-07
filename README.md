@@ -38,7 +38,7 @@ To get started with this application, follow these steps:
 
     ```bash
     git clone git@github.com:Bassil-ali/work-order-invoice.git
-    cd ecommerce-laravel
+    cd work-order-invoice
     ```
 
 2. **Install Composer dependencies:**
