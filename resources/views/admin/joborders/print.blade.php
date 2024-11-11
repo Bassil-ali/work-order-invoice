@@ -43,13 +43,13 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-3 d-flex align-items-stretch">
+            <div class="col-md-3 d-flex align-items-stretch" style="width: 200px; height: 120px; overflow: hidden;">
               <div
                 class="img-job w-100 d-flex flex-column align-items-center justify-content-center mt-1"
               >
                
                 @if($jobOrder->photo)
-                  <img src="{{ asset('storage/' . $jobOrder->photo) }}" alt="Job Order Image" class="img-fluid">
+                  <img src="{{ asset('storage/' . $jobOrder->photo) }}" alt="Job Order Image" class="img-fluid" style="width: 100%; height: 100%; object-fit: contain;">
                 @endif
               </div>
             </div>
