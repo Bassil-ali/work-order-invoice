@@ -43,7 +43,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-3 d-flex align-items-stretch" style="width: 200px; height: 120px; overflow: hidden;">
+            <div class="col-md-3 d-flex align-items-stretch" style="width:auto; max-width: 150px; height: 120px; overflow: hidden;">
               <div
                 class="img-job w-100 d-flex flex-column align-items-center justify-content-center mt-1"
               >
