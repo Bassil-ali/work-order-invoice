@@ -49,7 +49,7 @@
               >
                
                 @if($jobOrder->photo)
-                  <img src="{{ asset('storage/' . $jobOrder->photo) }}" alt="Job Order Image" class="img-fluid" style="width: 100%; height: 100%; object-fit: contain;">
+                  <img src="{{ asset('storage/' . $jobOrder->photo) }}" alt="Job Order Image" class="img-fluid" style="width:auto; max-width: 150px; height: 120px; overflow: hidden;">
                 @endif
               </div>
             </div>
