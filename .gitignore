@@ -13,3 +13,22 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+
+# Laravel storage directory
+/storage/*
+!/storage/app
+!/storage/app/public
+!/storage/framework
+!/storage/logs
+
+# Ignore everything in storage except app/public, framework, and logs folders
+/storage/framework/*
+!/storage/framework/cache
+!/storage/framework/sessions
+!/storage/framework/testing
+!/storage/framework/views
+
+# Ignoring contents of specific folders
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*

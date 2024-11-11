@@ -446,15 +446,15 @@
                             value="{{ $jobOrder->Quantity_in_numbers ?? '' }}"
                         />
                     </div>
-                    <div class="col-8 br">
+                    <div class="col-8 br ps-0">
                         <div
                             class="d-grid align-items-center justify-content-between"
                             style="grid-template-columns: auto auto auto"
                         >
-                            <label class="form-check-label" for="flexCheckDefault">
+                            <label class="form-check-label ps-1" for="flexCheckDefault">
                                 قياس&nbsp;البليتات:&nbsp;
                             </label>
-                            <div class="form-check mt-1">
+                            <div class="form-check mt-1 ms-2">
                                 <label style="width: max-content" class="form-check-label" for="flexCheck70x100">
                                     70ｘ100
                                 </label>
@@ -522,7 +522,7 @@
                                 نصف&nbsp;ملزمة
                             </label>
                         </div>
-                        <div class="form-check mt-1 ms-2">
+                        <div class="form-check mt-1 ms-3">
                             <input
                                 class="form-check-input"
                                 type="checkbox"
@@ -537,7 +537,7 @@
                     </div>
                     
                     <!-- Book Folding checkboxes -->
-                    <div class="col-5 d-flex justify-content-between">
+                    <div class="col-5 d-flex justify-content-between pe-3">
                         <label class="form-check-label mt-1">طوي الكتاب</label>
                         @php
                             $foldValues = ['4', '8', '16', '32']; 
@@ -550,9 +550,10 @@
                                     {{ $fold }}
                                 </label>
                                 <input
-                                    class="form-check-input"
+                                    class="form-check-input  ps-0 pe-0 p-0"
                                     type="checkbox"
                                     value="{{ $fold }}"
+                                    onclick="this.checked=!this.checked;"
                                     id="flexCheck{{ $fold }}"
                                     {{ in_array($fold, (array)json_decode($selectedFold)) ? 'checked' : '' }} 
                                 />
@@ -651,8 +652,8 @@
                     </div>
                 </div>
                 
-                <div class="col-3 d-flex br">
-                    <div class="form-check mt-1">
+                <div class="col-3 d-flex align-items-center">
+                    <div class="form-check mt-1 me-3">
                         <label class="form-check-label" for="flexCheckFace">
                             وجه
                         </label>
@@ -664,7 +665,7 @@
                             {{ $jobOrder->cover_pallet_measurement_type == 'face' ? 'checked' : '' }}
                         />
                     </div>
-                    <div class="form-check mt-1 pr-4">
+                    <div class="form-check mt-1">
                         <label class="form-check-label" for="flexCheckTwoFaces">
                             وجهان
                         </label>
