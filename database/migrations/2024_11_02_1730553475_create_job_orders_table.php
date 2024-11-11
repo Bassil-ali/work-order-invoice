@@ -43,7 +43,7 @@ $table->foreignId("admin_id")->constrained("admins")->onUpdate("cascade")->onDel
             $table->string('Lieutenant_notes')->nullable();
             $table->string('Lieutenant_Prepared_by')->nullable();
             $table->string('Paper_type');
-            $table->enum('cover_pallet_measurement',['70x100','70x50']);
+            $table->enum('cover_pallet_measurement',['70x100','50x70']);
             $table->enum('cover_pallet_measurement_type',['face','Two faces']);
             $table->string('cover_notes')->nullable();
             $table->string('cover_created_by')->nullable();

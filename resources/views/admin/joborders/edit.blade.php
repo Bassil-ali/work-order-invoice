@@ -288,7 +288,7 @@
 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
 		<div class="form-group">
 				{!! Form::label('cover_pallet_measurement',trans('admin.cover_pallet_measurement'),['class'=>'control-label']) !!}
-{!! Form::select('cover_pallet_measurement',['0x70'=>trans('admin.0x70'),'70x50'=>trans('admin.70x50'),], $joborders->cover_pallet_measurement ,['class'=>'form-control select2','placeholder'=>trans('admin.cover_pallet_measurement')]) !!}
+{!! Form::select('cover_pallet_measurement',['50x70'=>trans('admin.50x70'),'70x100'=>trans('admin.70x100'),], $joborders->cover_pallet_measurement ,['class'=>'form-control select2','placeholder'=>trans('admin.cover_pallet_measurement')]) !!}
 		</div>
 </div>
 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">

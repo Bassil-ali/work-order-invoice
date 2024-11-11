@@ -225,7 +225,7 @@
 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
 	<div class="form-group">
 		{!! Form::label('cover_pallet_measurement',trans('admin.cover_pallet_measurement')) !!}
-		{!! Form::select('cover_pallet_measurement',['0x70'=>trans('admin.0x70'),'70x50'=>trans('admin.70x50'),],old('cover_pallet_measurement'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
+		{!! Form::select('cover_pallet_measurement',['100x70'=>trans('admin.100x70'),'70x50'=>trans('admin.70x50'),],old('cover_pallet_measurement'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
 	</div>
 </div>
 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
