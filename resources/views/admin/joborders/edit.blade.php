@@ -62,7 +62,7 @@
 <div class="row">
 @if($userRole != 'not_found')
 
-<div id="entry">
+<div id="entry" class="row">
 <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 photo">
     <div class="row">
         <div class="col-md-8">
@@ -90,6 +90,7 @@
             </div>
         </div>
     </div>
+
 </div>
 <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
     <div class="form-group">
@@ -137,7 +138,7 @@
 </div>
 </div>
 
-<div id="manager">
+<div id="manager" class="row">
 <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
     <div class="form-group">
         {!! Form::label('Price',trans('admin.Price'),['class'=>'control-label']) !!}
@@ -167,7 +168,7 @@
 </div>
 </div>
 
-<div id="specifcation">
+<div id="specifcation" class="row">
 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
     <h2>المواصفات</h2>
 </div>
@@ -233,7 +234,7 @@
 </div>
 </div>
 
-<div id="desighn">
+<div id="desighn" class="row">
 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
     <h2>التصميم والمونتاج</h2>
 </div>
@@ -311,7 +312,7 @@
 </div>
 </div>
 
-<div id="printer">
+<div id="printer" class="row">
 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
     <h2>الطباعه اوفست</h2>
 </div>
@@ -341,7 +342,7 @@
 </div>
 </div>
 
-<div id="printer_digital">
+<div id="printer_digital" class="row">
 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
     <h2>الطباعــــــــــــة ( ديجتال )</h2>
 </div>
@@ -353,7 +354,7 @@
 </div>
 </div>
 
-<div id="cover">
+<div id="cover" class="row">
 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
     <h2>لتجليـــــــد و السلوفان</h2>
 </div>
@@ -377,7 +378,7 @@
 </div>
 </div>
 
-<div id="after_print">
+<div id="after_print" class="row">
 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
     <h2>ما بعد الطباعة</h2>
 </div>
@@ -388,18 +389,19 @@
     </div>
 </div>
 </div>
-<script>
+
+
+
+</div>
+<!-- /.row -->
+</div>
+<!-- /.card-body -->
+    <script>
     const userRole = @json($userRole->user_role);
 </script>
 @else
 <center>لا يووجد صلاحيه تعديل</center>
 @endif
-
-
-</div>
-		<!-- /.row -->
-		</div>
-	<!-- /.card-body -->
 	<div class="card-footer"><button type="submit" name="save" class="btn btn-primary btn-flat"><i class="fa fa-save"></i> {{ trans('admin.save') }}</button>
 <button type="submit" name="save_back" class="btn btn-success btn-flat"><i class="fa fa-save"></i> {{ trans('admin.save_back') }}</button>
 {!! Form::close() !!}
@@ -411,12 +413,13 @@
 document.addEventListener("DOMContentLoaded", function () {
     const rolesToDivs = {
         entry: ["entry", "specifcation", "desighn", "printer", "printer_digital", "cover", "after_print"],
-        specifcation: ["specifcation", "entry"],
-        desighn: ["desighn", "entry"],
-        printer: ["printer", "entry"],
-        printer_digital: ["printer_digital", "entry"],
-        cover: ["cover", "entry"],
-        after_print: ["after_print", "entry"],
+        specifcation: ["specifcation", ],
+        desighn: ["desighn", ],
+        printer: ["printer", ],
+        printer_digital: ["printer_digital", ],
+        cover: ["cover", ],
+        after_print: ["after_print", ],
+        manager:['manager'],
     };
 
     // Hide all elements initially

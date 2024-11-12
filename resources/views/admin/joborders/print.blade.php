@@ -8,7 +8,11 @@
   <link rel="stylesheet" href="{{ url('assets') }}/invoice/css/bootstrap.rtl.min.css" />
   <link rel="stylesheet" href="{{ url('assets') }}/invoice/css/style.css" />
   <title>أمر عمل </title>
- 
+  <style>
+    input[type="checkbox"] {
+        pointer-events: none;
+    }
+</style>
 </head>
 
 <body>
@@ -141,7 +145,7 @@
                         <div class="form-check mb-0">
                             <input readonly 
                                 class="form-check-input" 
-                                type="checkbox" 
+                                type="checkbox" disabled
                                 name="payment_methods[]" 
                                 value="{{ $method }}" 
                                 id="payment_{{ $method }}" 
@@ -343,7 +347,7 @@
                         <span style="color: #fed400">Y</span>
                         <span style="color: #221e1f">K</span>
                       </label>
-                      <input readonly class="form-check-input" type="checkbox" value="CMYK" id="flexCheckCMYKInterior"
+                      <input readonly class="form-check-input" type="checkbox" disabledvalue="CMYK" id="flexCheckCMYKInterior"
                         {{ in_array('CMYK', explode(',', $jobOrder->Number_of_interior_colors ?? '')) ? 'checked' : '' }} />
                     </div>
                   </div>
@@ -355,7 +359,7 @@
                         <label class="form-check-label" for="flexCheck{{ $color }}Interior" style="color: {{ $colorCode }}">
                           {{ $color }}
                         </label>
-                        <input readonly class="form-check-input" type="checkbox" value="{{ $color }}" id="flexCheck{{ $color }}Interior"
+                        <input readonly class="form-check-input" type="checkbox" disabledvalue="{{ $color }}" id="flexCheck{{ $color }}Interior"
                           {{ in_array($color, explode(',', $jobOrder->Number_of_interior_colors ?? '')) ? 'checked' : '' }} />
                       </div>
                     @endforeach
@@ -373,7 +377,7 @@
                         <span style="color: #fed400">Y</span>
                         <span style="color: #221e1f">K</span>
                       </label>
-                      <input readonly class="form-check-input" type="checkbox" value="CMYK" id="flexCheckCMYKCover"
+                      <input readonly class="form-check-input" type="checkbox" disabledvalue="CMYK" id="flexCheckCMYKCover"
                         {{ in_array('CMYK', explode(',', $jobOrder->Number_of_colors_Cover_or_commercial ?? '')) ? 'checked' : '' }} />
                     </div>
                   </div>
@@ -385,7 +389,7 @@
                         <label class="form-check-label" for="flexCheck{{ $color }}Cover" style="color: {{ $colorCode }}">
                           {{ $color }}
                         </label>
-                        <input readonly class="form-check-input" type="checkbox" value="{{ $color }}" id="flexCheck{{ $color }}Cover"
+                        <input readonly class="form-check-input" type="checkbox" disabledvalue="{{ $color }}" id="flexCheck{{ $color }}Cover"
                           {{ in_array($color, explode(',', $jobOrder->Number_of_colors_Cover_or_commercial ?? '')) ? 'checked' : '' }} />
                       </div>
                     @endforeach
@@ -1081,6 +1085,7 @@
   <!-----------------------js----------------------------->
 
   <script src="{{ url('assets') }}/invoice/js/bootstrap.min.js"></script>
+  </script>
 </body>
 
 </html>
