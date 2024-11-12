@@ -34,7 +34,7 @@
                 </div>
                 <div class="align-items-center mt-1 d-md-flex d-none">
                   <p class="mb-0">اسم&nbsp;العميل:</p>
-                  <input
+                  <input readonly
                     type="text"
                     class="form-control-plaintext pb-0 pt-0 mb-2"
                     id="num"
@@ -56,7 +56,7 @@
             <div class="col-12">
               <div class="align-items-center mt-2 d-md-none d-flex">
                 <p class="mb-0">اسم&nbsp;العميل:</p>
-                <input
+                <input readonly
                   type="text"
                   class="form-control-plaintext pb-0 pt-0 mb-2"
                   id="num"
@@ -65,7 +65,7 @@
               </div>
               <div class="d-flex align-items-center mt-1">
                 <p class="mb-0">اسم&nbsp;العمل:</p>
-                <input
+                <input readonly
                   type="text"
                   class="form-control-plaintext pb-0 pt-0 mb-2"
                   id="num"
@@ -76,7 +76,7 @@
             <div class="col-md-6">
               <div class="d-flex align-items-center mt-1">
                 <p class="mb-0">اليوم/&nbsp;التاريخ:</p>
-                <input
+                <input readonly
                   type="text"
                   class="form-control-plaintext pb-0 pt-0 mb-2"
                   id="num"
@@ -87,7 +87,7 @@
             <div class="col-md-6">
               <div class="d-flex align-items-center mt-1">
                 <p class="mb-0">موعد&nbsp;التسليم:</p>
-                <input
+                <input readonly
                   type="text"
                   class="form-control-plaintext pb-0 pt-0 mb-2"
                   id="num"
@@ -106,7 +106,7 @@
               <div class="d-grid mb-3">
                 <div class="d-flex align-items-center">
                   <label for="num" class="mx-2 font">السعر</label>
-                  <input
+                  <input readonly
                     type="text"
                     class="form-control-plaintext pb-0 pt-0 mb-1"
                     id="num"
@@ -115,7 +115,7 @@
                 </div>
                 <div class="d-flex align-items-center">
                   <label for="num" class="mx-2 text-black">ملاحظات</label>
-                  <input
+                  <input readonly
                     type="text"
                     class="form-control-plaintext pb-0 pt-0 mb-1"
                     id="num"
@@ -139,7 +139,7 @@
                     
                     @foreach($paymentMethods as $method => $arabic)
                         <div class="form-check mb-0">
-                            <input 
+                            <input readonly 
                                 class="form-check-input" 
                                 type="checkbox" 
                                 name="payment_methods[]" 
@@ -186,7 +186,7 @@
               <div class="row">
                 <div class="col-12 br d-flex justify-content-between align-items-center">
                   <div class="form-check mb-0">
-                    <input
+                    <input readonly
                       class="form-check-input"
                       type="checkbox"
                       value="Book"
@@ -197,7 +197,7 @@
                   </div>
                   <div class="d-flex align-items-center">
                     <label for="num" class="mx-2 pt-1">عدد&nbsp;الصفحات</label>
-                    <input
+                    <input readonly
                       type="text"
                       class="form-control-plaintext pb-0 pt-0 mb-1"
                       id="num"
@@ -205,7 +205,7 @@
                     />
                   </div>
                   <div class="form-check d-flex align-items-center ms-2">
-                    <input
+                    <input readonly
                       class="form-check-input"
                       type="checkbox"
                       value="Other"
@@ -213,7 +213,7 @@
                       {{ $jobOrder->type_of_publication == 'Other' ? 'checked' : '' }}
                     />
                     <label class="form-check-label mx-2 pt-1" for="flexCheckDefaultOther">أخرى</label>
-                    <input
+                    <input readonly
                       type="text"
                       class="form-control-plaintext pt-0 mb-1 pb-0"
                       id="otherType"
@@ -235,7 +235,7 @@
                 <!-- Commercial Size -->
                 <div class="col-4 br">
                   <div class="form-check mt-1">
-                    <input
+                    <input readonly
                       class="form-check-input"
                       type="checkbox"
                       value="20.5x28 Commercial"
@@ -251,7 +251,7 @@
                 <!-- Test Tender Size -->
                 <div class="col-4 br-bl">
                   <div class="form-check mt-1">
-                    <input
+                    <input readonly
                       class="form-check-input"
                       type="checkbox"
                       value="21x28 Test Tender"
@@ -268,7 +268,7 @@
                 <div class="col-4">
                   <div class="d-flex">
                     <div class="form-check mt-1">
-                      <input
+                      <input readonly
                         class="form-check-input"
                         type="checkbox"
                         value="Custom Measure"
@@ -279,7 +279,7 @@
                         قياس&nbsp;خاص
                       </label>
                     </div>
-                    <input
+                    <input readonly
                       type="text"
                       class="form-control-plaintext pt-0 mb-1 pb-0"
                       id="customMeasure"
@@ -301,7 +301,7 @@
                 <div class="col-5 br-bl">
                   <div class="d-flex align-items-center">
                     <label for="numDigits" class="me-2">بالأرقام </label>
-                    <input
+                    <input readonly
                       type="text"
                       class="form-control-plaintext pb-0 pt-0 mb-1"
                       id="numDigits"
@@ -314,7 +314,7 @@
                 <div class="col-7">
                   <div class="d-flex align-items-center">
                     <label for="numWords" class="me-2">كتابة </label>
-                    <input
+                    <input readonly
                       type="text"
                       class="form-control-plaintext pb-0 pt-0 mb-1"
                       id="numWords"
@@ -343,7 +343,7 @@
                         <span style="color: #fed400">Y</span>
                         <span style="color: #221e1f">K</span>
                       </label>
-                      <input class="form-check-input" type="checkbox" value="CMYK" id="flexCheckCMYKInterior"
+                      <input readonly class="form-check-input" type="checkbox" value="CMYK" id="flexCheckCMYKInterior"
                         {{ in_array('CMYK', explode(',', $jobOrder->Number_of_interior_colors ?? '')) ? 'checked' : '' }} />
                     </div>
                   </div>
@@ -355,7 +355,7 @@
                         <label class="form-check-label" for="flexCheck{{ $color }}Interior" style="color: {{ $colorCode }}">
                           {{ $color }}
                         </label>
-                        <input class="form-check-input" type="checkbox" value="{{ $color }}" id="flexCheck{{ $color }}Interior"
+                        <input readonly class="form-check-input" type="checkbox" value="{{ $color }}" id="flexCheck{{ $color }}Interior"
                           {{ in_array($color, explode(',', $jobOrder->Number_of_interior_colors ?? '')) ? 'checked' : '' }} />
                       </div>
                     @endforeach
@@ -373,7 +373,7 @@
                         <span style="color: #fed400">Y</span>
                         <span style="color: #221e1f">K</span>
                       </label>
-                      <input class="form-check-input" type="checkbox" value="CMYK" id="flexCheckCMYKCover"
+                      <input readonly class="form-check-input" type="checkbox" value="CMYK" id="flexCheckCMYKCover"
                         {{ in_array('CMYK', explode(',', $jobOrder->Number_of_colors_Cover_or_commercial ?? '')) ? 'checked' : '' }} />
                     </div>
                   </div>
@@ -385,7 +385,7 @@
                         <label class="form-check-label" for="flexCheck{{ $color }}Cover" style="color: {{ $colorCode }}">
                           {{ $color }}
                         </label>
-                        <input class="form-check-input" type="checkbox" value="{{ $color }}" id="flexCheck{{ $color }}Cover"
+                        <input readonly class="form-check-input" type="checkbox" value="{{ $color }}" id="flexCheck{{ $color }}Cover"
                           {{ in_array($color, explode(',', $jobOrder->Number_of_colors_Cover_or_commercial ?? '')) ? 'checked' : '' }} />
                       </div>
                     @endforeach
@@ -402,7 +402,7 @@
             <div class="col-10">
               <div class="row">
                 <div class="col-12 br">
-                  <input
+                  <input readonly
                     type="text"
                     class="form-control-plaintext mx-1 pb-0 pt-0 mb-1"
                     id="num"
@@ -440,7 +440,7 @@
                 <div class="row">
                     <div class="col-4 br d-flex align-items-center">
                         <label for="num" class="me-2">نوع&nbsp;الورق&nbsp;الداخلي</label>
-                        <input
+                        <input readonly
                             type="text"
                             class="form-control-plaintext pb-0 pt-0 mb-1"
                             id="num"
@@ -459,7 +459,7 @@
                                 <label style="width: max-content" class="form-check-label" for="flexCheck70x100">
                                     70ｘ100
                                 </label>
-                                <input
+                                <input readonly
                                     class="form-check-input"
                                     type="checkbox"
                                     value="70x100"
@@ -472,7 +472,7 @@
                                     <label style="width: max-content" class="form-check-label" for="flexCheck50x70">
                                         50ｘ70
                                     </label>
-                                    <input
+                                    <input readonly
                                         class="form-check-input"
                                         type="checkbox"
                                         value="50x70"
@@ -480,7 +480,7 @@
                                         {{ $jobOrder->Pallet_measuring_notes == '50x70' ? 'checked' : '' }}  
                                     />
                                 </div>
-                                <input
+                                <input readonly
                                     type="text"
                                     class="form-control-plaintext pb-0 pt-0 mb-1"
                                     id="num_internal_paper"
@@ -501,7 +501,7 @@
                     <!-- Input for العدد -->
                     <div class="col-3 br d-flex align-items-center">
                         <label for="num" class="me-2">العدد</label>
-                        <input
+                        <input readonly
                             type="text"
                             class="form-control-plaintext pb-0 pt-0 mb-1"
                             id="num"
@@ -512,7 +512,7 @@
                     <!-- Half and Quarter Binding checkboxes -->
                     <div class="col-4 br-bl d-flex">
                         <div class="form-check mt-1">
-                            <input
+                            <input readonly
                                 class="form-check-input"
                                 type="checkbox"
                                 value="Half binding"
@@ -524,7 +524,7 @@
                             </label>
                         </div>
                         <div class="form-check mt-1 ms-3">
-                            <input
+                            <input readonly
                                 class="form-check-input"
                                 type="checkbox"
                                 value="Quarter of a notebook"
@@ -550,7 +550,7 @@
                                 <label class="form-check-label" for="flexCheck{{ $fold }}">
                                     {{ $fold }}
                                 </label>
-                                <input
+                                <input readonly
                                     class="form-check-input  ps-0 pe-0 p-0"
                                     type="checkbox"
                                     value="{{ $fold }}"
@@ -573,7 +573,7 @@
                         <div class="col-7 br">
                             <div class="d-flex align-items-center">
                                 <label for="notes" class="me-2">ملاحظات</label>
-                                <input
+                                <input readonly
                                     type="text"
                                     class="form-control-plaintext pb-0 pt-0 mb-1"
                                     id="notes"
@@ -586,7 +586,7 @@
                         <div class="col-5">
                             <div class="d-flex align-items-center">
                                 <label for="prepared_by" class="me-2">اعداد</label>
-                                <input
+                                <input readonly
                                     type="text"
                                     class="form-control-plaintext pb-0 pt-0 mb-1"
                                     id="prepared_by"
@@ -606,7 +606,7 @@
                 <div class="row">
                   <div class="col-3 br d-flex align-items-center">
                     <label for="num" class="me-2">نوع&nbsp;الورق </label>
-                    <input
+                    <input readonly
                       type="text"
                       class="form-control-plaintext pb-0 pt-0 mb-1"
                       id="num"
@@ -622,7 +622,7 @@
                             <label style="width: max-content" class="form-check-label" for="flexCheckDefault">
                                 70×100
                             </label>
-                            <input
+                            <input readonly
                                 class="form-check-input"
                                 type="checkbox"
                                 value="70x100"
@@ -635,7 +635,7 @@
                             <label style="width: max-content" class="form-check-label" for="flexCheckDefault">
                                 50×70
                             </label>
-                            <input
+                            <input readonly
                                 class="form-check-input"
                                 type="checkbox"
                                 value="50x70"
@@ -643,7 +643,7 @@
                                 {{ $jobOrder->cover_pallet_measurement == '50x70' ? 'checked' : '' }}
                             />
                         </div>
-                        <input
+                        <input readonly
                             type="text"
                             class="form-control-plaintext pb-0 pt-0 mb-1"
                             id="paper_type"
@@ -658,7 +658,7 @@
                         <label class="form-check-label" for="flexCheckFace">
                             وجه
                         </label>
-                        <input
+                        <input readonly
                             class="form-check-input mt-1"
                             type="checkbox"
                             value="face"
@@ -670,7 +670,7 @@
                         <label class="form-check-label" for="flexCheckTwoFaces">
                             وجهان
                         </label>
-                        <input
+                        <input readonly
                             class="form-check-input mt-1"
                             type="checkbox"
                             value="Two faces"
@@ -690,7 +690,7 @@
                   <div class="col-7 br">
                     <div class="d-flex align-items-center">
                       <label for="num" class="me-2">ملاحظات </label>
-                      <input
+                      <input readonly
                         type="text"
                         class="form-control-plaintext pb-0 pt-0 mb-1"
                         id="num"
@@ -701,7 +701,7 @@
                   <div class="col-5">
                     <div class="d-flex align-items-center">
                       <label for="num" class="me-2">اعداد </label>
-                      <input
+                      <input readonly
                         type="text"
                         class="form-control-plaintext pb-0 pt-0 mb-1"
                         id="num"
@@ -726,7 +726,7 @@
                 <div class="d-flex align-items-stretch">
                   <div class="thead d-flex align-items-center">
                     <div class="form-check d-flex align-items-center">
-                      <input
+                      <input readonly
                         class="form-check-input mt-3"
                         type="checkbox"
                         value=""
@@ -752,7 +752,7 @@
                                 <div class="d-flex gap-lg-4 gap-1 align-items-center justify-content-center mt-2">
                                     <!-- 8 Color 70x100 Checkbox -->
                                     <div class="form-check d-flex align-items-center">
-                                        <input
+                                        <input readonly
                                             class="form-check-input"
                                             type="checkbox"
                                             value="8 Color 70x100"
@@ -765,7 +765,7 @@
                                     </div>
                                     <!-- 4 Color 70x100 Checkbox -->
                                     <div class="form-check d-flex align-items-center">
-                                        <input
+                                        <input readonly
                                             class="form-check-input"
                                             type="checkbox"
                                             value="4 Color 70x100"
@@ -778,7 +778,7 @@
                                     </div>
                                     <!-- 50x70 Checkbox -->
                                     <div class="form-check d-flex align-items-center">
-                                        <input
+                                        <input readonly
                                             class="form-check-input"
                                             type="checkbox"
                                             value="70x100"
@@ -792,7 +792,7 @@
                                 </div>
                                 
                                 <!-- Textarea for Lieutenant Text -->
-                                <textarea
+                                <textarea  readonly
                                     class="form-control"
                                     id="exampleFormControlTextarea1"
                                     rows="2"
@@ -812,7 +812,7 @@
                                 <div class="d-flex gap-lg-4 gap-1 flex-wrap align-items-center justify-content-center mt-2">
                                     <!-- 4 Color 70x100 Checkbox -->
                                     <div class="form-check d-flex align-items-center">
-                                        <input
+                                        <input readonly
                                             class="form-check-input"
                                             type="checkbox"
                                             value="4 Color 70x100"
@@ -825,7 +825,7 @@
                                     </div>
                                     <!-- 70x100 Checkbox -->
                                     <div class="form-check d-flex align-items-center">
-                                        <input
+                                        <input readonly
                                             class="form-check-input"
                                             type="checkbox"
                                             value="70x100"
@@ -838,7 +838,7 @@
                                     </div>
                                     <!-- 50x70 Checkbox -->
                                     <div class="form-check d-flex align-items-center">
-                                        <input
+                                        <input readonly
                                             class="form-check-input"
                                             type="checkbox"
                                             value="50x70"
@@ -852,7 +852,7 @@
                                 </div>
                     
                                 <!-- Textarea for Cover Notes -->
-                                <textarea
+                                <textarea  readonly
                                     class="form-control"
                                     id="exampleFormControlTextarea2"
                                     rows="2"
@@ -873,7 +873,7 @@
                 <div class="d-flex align-items-stretch">
                   <div class="thead d-flex align-items-center">
                     <div class="form-check d-flex align-items-center">
-                      <input
+                      <input readonly
                         class="form-check-input mt-3"
                         type="checkbox"
                         value=""
@@ -891,7 +891,7 @@
                 >
                   <div class="row g-0 align-items-center">
                     <div class="col-12 p-2">
-                      <textarea
+                      <textarea  readonly
                         class="form-control"
                         id="exampleFormControlTextarea1"
                         style="height: 134px"
@@ -901,7 +901,7 @@
                         <div class="col-8">
                           <div class="d-flex align-items-center">
                             <label for="num" class="mx-2">اعداد </label>
-                            <input
+                            <input readonly
                               type="text"
                               class="form-control-plaintext pb-0 pt-0 mb-1"
                               id="num"
@@ -944,7 +944,7 @@
                                 <div class="d-flex gap-lg-4 gap-1 align-items-center justify-content-center mt-2">
                                     <!-- Horse Checkbox -->
                                     <div class="form-check d-flex align-items-center">
-                                        <input
+                                        <input readonly
                                             class="form-check-input"
                                             type="checkbox"
                                             value="Horse"
@@ -957,7 +957,7 @@
                                     </div>
                                     <!-- Sewing Checkbox -->
                                     <div class="form-check d-flex align-items-center">
-                                        <input
+                                        <input readonly
                                             class="form-check-input"
                                             type="checkbox"
                                             value="Sewing"
@@ -970,7 +970,7 @@
                                     </div>
                                     <!-- Cut Checkbox -->
                                     <div class="form-check d-flex align-items-center">
-                                        <input
+                                        <input readonly
                                             class="form-check-input"
                                             type="checkbox"
                                             value="Cut"
@@ -997,7 +997,7 @@
                                 <div class="d-flex gap-lg-4 gap-1 flex-wrap align-items-center justify-content-center mt-2">
                                     <!-- Shiny Checkbox -->
                                     <div class="form-check d-flex align-items-center">
-                                        <input
+                                        <input readonly
                                             class="form-check-input"
                                             type="checkbox"
                                             value="Shiny"
@@ -1010,7 +1010,7 @@
                                     </div>
                                     <!-- Matte Checkbox -->
                                     <div class="form-check d-flex align-items-center">
-                                        <input
+                                        <input readonly
                                             class="form-check-input"
                                             type="checkbox"
                                             value="Matte"
@@ -1033,7 +1033,7 @@
                         <div class="col-12">
                           <div class="d-flex align-items-center w-100 p-2">
                             <label for="num" class="me-2">ملاحظات </label>
-                            <textarea
+                            <textarea  readonly
                               class="form-control"
                               id="exampleFormControlTextarea1"
                               row="3"
@@ -1062,7 +1062,7 @@
                 >
                   <div class="row g-0 align-items-center">
                     <div class="col-12 p-2">
-                      <textarea
+                      <textarea  readonly
                         class="form-control"
                         id="exampleFormControlTextarea1"
                         style="height: 131px"
