@@ -1,11 +1,11 @@
 <?php
-namespace App\Http\Controllers\ValidationsApi\V1;
+namespace App\Http\Controllers\Validations;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class BookFilesRequest extends FormRequest {
+class BookFileRequest extends FormRequest {
 
 	/**
 	 * Baboon Script By [it v 1.6.40]
@@ -25,12 +25,15 @@ class BookFilesRequest extends FormRequest {
 	 */
 	protected function onCreate() {
 		return [
+             'file'=>'required',
+             'file_name'=>'required',
 		];
 	}
 
-
 	protected function onUpdate() {
 		return [
+             'file'=>'required',
+             'file_name'=>'required',
 		];
 	}
 
@@ -48,6 +51,8 @@ class BookFilesRequest extends FormRequest {
 	 */
 	public function attributes() {
 		return [
+             'file'=>trans('admin.file'),
+             'file_name'=>trans('admin.file_name'),
 		];
 	}
 

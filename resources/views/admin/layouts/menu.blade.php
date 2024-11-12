@@ -131,25 +131,29 @@ with font-awesome or any other icon font library -->
 @endif
 <!--joborders_end_route-->
 
-<!--bookfiles_start_route-->
-@if(admin()->user()->role("bookfiles_show"))
-<li class="nav-item {{active_link('bookfiles','menu-open')}} ">
-  <a href="#" class="nav-link {{active_link('bookfiles','active')}}">
+
+
+
+
+<!--bookfile_start_route-->
+@if(admin()->user()->role("bookfile_show"))
+<li class="nav-item {{active_link('bookfile','menu-open')}} ">
+  <a href="#" class="nav-link {{active_link('bookfile','active')}}">
     <i class="nav-icon fa fa-file-alt"></i>
     <p>
-      {{trans('admin.bookfiles')}} 
+      {{trans('admin.bookfile')}} 
       <i class="right fas fa-angle-left"></i>
     </p>
   </a>
   <ul class="nav nav-treeview">
     <li class="nav-item">
-      <a href="{{aurl('bookfiles')}}" class="nav-link  {{active_link('bookfiles','active')}}">
+      <a href="{{aurl('bookfile')}}" class="nav-link  {{active_link('bookfile','active')}}">
         <i class="fa fa-file-alt nav-icon"></i>
-        <p>{{trans('admin.bookfiles')}} </p>
+        <p>{{trans('admin.bookfile')}} </p>
       </a>
     </li>
     <li class="nav-item">
-      <a href="{{ aurl('bookfiles/create') }}" class="nav-link">
+      <a href="{{ aurl('bookfile/create') }}" class="nav-link">
         <i class="fas fa-plus nav-icon"></i>
         <p>{{trans('admin.create')}} </p>
       </a>
@@ -157,6 +161,4 @@ with font-awesome or any other icon font library -->
   </ul>
 </li>
 @endif
-<!--bookfiles_end_route-->
-
-
+<!--bookfile_end_route-->

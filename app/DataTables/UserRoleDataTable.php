@@ -1,6 +1,6 @@
 <?php
 namespace App\DataTables;
-use App\Models\UserRole;
+use App\Models\UserRoles;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Services\DataTable;
 // Auto DataTable By Baboon Script
@@ -35,7 +35,7 @@ class UserRoleDataTable extends DataTable
      */
 	public function query()
     {
-        return UserRole::query()->with(['user_name',])->select("user_roles.*");
+        return UserRoles::query()->with(['user_name',])->select("user_roles.*");
 
     }
     	
@@ -86,21 +86,7 @@ class UserRoleDataTable extends DataTable
 
 
             
-                        //user_nameuser_name,user_role2
-            ". filterElement('2', 'select', \App\Models\Admin::pluck("name","name")) . "
-            //user_roleuser_name,user_role3
-            ". filterElement('3', 'select', [
-            'entry'=>trans('admin.entry'),
-            'manager'=>trans('admin.manager'),
-            'specifcation'=>trans('admin.specifcation'),
-            'desighn'=>trans('admin.desighn'),
-            'printer'=>trans('admin.printer'),
-            'cover'=>trans('admin.cover'),
-            'printer_cover'=>trans('admin.printer_cover'),
-            'after_print'=>trans('admin.after_print'),
-            'printer_digital'=>trans('admin.printer_digital'),
-            ]) . "
-
+            
 
 	            }",
                 'order' => [[1, 'desc']],
@@ -168,16 +154,6 @@ class UserRoleDataTable extends DataTable
                 'width'          => '10px',
                 'aaSorting'      => 'none'
             ],
-				[
-                 'name'=>'user_name.name',
-                 'data'=>'user_name.name',
-                 'title'=>trans('admin.user_name'),
-		    ],
-				[
-                 'name'=>'user_roles.user_role',
-                 'data'=>'user_role',
-                 'title'=>trans('admin.user_role'),
-		    ],
             [
 	                'name' => 'created_at',
 	                'data' => 'created_at',

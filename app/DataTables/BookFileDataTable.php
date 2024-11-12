@@ -6,7 +6,7 @@ use Yajra\DataTables\Services\DataTable;
 // Auto DataTable By Baboon Script
 // Baboon Maker has been Created And Developed By [it v 1.6.40]
 // Copyright Reserved [it v 1.6.40]
-class BookFilesDataTable extends DataTable
+class BookFileDataTable extends DataTable
 {
     	
 
@@ -18,7 +18,7 @@ class BookFilesDataTable extends DataTable
     public function dataTable(DataTables $dataTables, $query)
     {
         return datatables($query)
-            ->addColumn('actions', 'admin.bookfiles.buttons.actions')
+            ->addColumn('actions', 'admin.bookfile.buttons.actions')
             ->addColumn('file', '<a href="{{ it()->url($file) }}" target="_blank"><i class="fa fa-download fa-2x"></i></a>')
    		->addColumn('created_at', '{{ date("Y-m-d H:i:s",strtotime($created_at)) }}')   		->addColumn('updated_at', '{{ date("Y-m-d H:i:s",strtotime($updated_at)) }}')            ->addColumn('checkbox', '<div  class="icheck-danger">
                   <input type="checkbox" class="selected_data" name="selected_data[]" id="selectdata{{ $id }}" value="{{ $id }}" >
@@ -94,6 +94,8 @@ class BookFilesDataTable extends DataTable
 
 
             
+            ". filterElement('1,3', 'input') . "
+
             
 
 	            }",
@@ -162,6 +164,16 @@ class BookFilesDataTable extends DataTable
                 'width'          => '10px',
                 'aaSorting'      => 'none'
             ],
+				[
+                 'name'=>'file',
+                 'data'=>'file',
+                 'title'=>trans('admin.file'),
+		    ],
+				[
+                 'name'=>'file_name',
+                 'data'=>'file_name',
+                 'title'=>trans('admin.file_name'),
+		    ],
             [
 	                'name' => 'created_at',
 	                'data' => 'created_at',
@@ -199,7 +211,7 @@ class BookFilesDataTable extends DataTable
 	     */
 	    protected function filename()
 	    {
-	        return 'bookfiles_' . time();
+	        return 'bookfile_' . time();
 	    }
     	
 }

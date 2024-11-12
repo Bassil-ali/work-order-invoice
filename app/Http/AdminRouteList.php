@@ -6,11 +6,12 @@
 * [it v 1.6.40]
 */
 return [
-	"userrole"=>["create","read","update","delete"],
-	"joborders"=>["create","read","update","delete"],
+	"bookfile"=>["create","read","update","delete"],
 	""=>["create","read","update","delete"],
-	"joborders2"=>["create","read","update","delete"],
+	"userrole"=>["create","read","update","delete"],
 	"bookfiles"=>["create","read","update","delete"],
+	"joborders"=>["create","read","update","delete"],
+	"joborders2"=>["create","read","update","delete"],
 	"jobeorders"=>["create","read","update","delete"],
 	"files"=>["create","read","update","delete"],
 	"admins"=>["create","read","update","delete"],

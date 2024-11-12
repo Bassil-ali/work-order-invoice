@@ -1,6 +1,6 @@
 {
     "info": {
-        "_postman_id": "5017ffb3-576c-4ad7-8f5e-40b2bd68d910",
+        "_postman_id": "315fb392-6e7a-418a-b79a-798757913840",
         "name": null,
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
@@ -15,6 +15,315 @@
         }
     ],
     "item": [
+        {
+            "name": "bookfile",
+            "item": [
+                {
+                    "name": "get all bookfile",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "lang",
+                                    "description": "For Return Language Message default Arabic",
+                                    "type": "text",
+                                    "value": "ar"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{local}}/bookfile",
+                            "host": [
+                                "{{local}}"
+                            ],
+                            "path": [
+                                "bookfile"
+                            ]
+                        },
+                        "description": "test description"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "show by id bookfile",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "lang",
+                                    "description": "For Return Language Message default Arabic",
+                                    "type": "text",
+                                    "value": "ar"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{local}}/bookfile/{PUT_YOUR_ID}",
+                            "host": [
+                                "{{local}}"
+                            ],
+                            "path": [
+                                "bookfile",
+                                "{PUT_YOUR_ID}"
+                            ]
+                        },
+                        "description": "test description"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Add Record bookfile",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "lang",
+                                    "description": "For Return Language Message default Arabic",
+                                    "type": "text",
+                                    "value": "ar"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{local}}/bookfile",
+                            "host": [
+                                "{{local}}"
+                            ],
+                            "path": [
+                                "bookfile"
+                            ]
+                        },
+                        "description": "test description"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Record By ID bookfile",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "lang",
+                                    "description": "For Return Language Message default Arabic",
+                                    "type": "text",
+                                    "value": "ar"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{local}}/bookfile/{PUT_YOUR_ID}",
+                            "host": [
+                                "{{local}}"
+                            ],
+                            "path": [
+                                "bookfile",
+                                "{PUT_YOUR_ID}"
+                            ]
+                        },
+                        "description": "test description"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE Record By ID bookfile",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "lang",
+                                    "description": "For Return Language Message default Arabic",
+                                    "type": "text",
+                                    "value": "ar"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{local}}/bookfile/{PUT_YOUR_ID}",
+                            "host": [
+                                "{{local}}"
+                            ],
+                            "path": [
+                                "bookfile",
+                                "{PUT_YOUR_ID}"
+                            ]
+                        },
+                        "description": "test description"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Multi Delete Record By IDs bookfile",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "lang",
+                                    "description": "For Return Language Message default Arabic",
+                                    "type": "text",
+                                    "value": "ar"
+                                },
+                                {
+                                    "key": "selected_data[]",
+                                    "value": "1",
+                                    "type": "text",
+                                    "description": "Record ID Integer"
+                                },
+                                {
+                                    "key": "selected_data[]",
+                                    "value": "2",
+                                    "type": "text",
+                                    "description": "Record ID Integer"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{local}}/bookfile/multi_delete",
+                            "host": [
+                                "{{local}}"
+                            ],
+                            "path": [
+                                "bookfile",
+                                "multi_delete"
+                            ]
+                        },
+                        "description": "test description"
+                    },
+                    "response": []
+                }
+            ]
+        },
         {
             "name": "bookfiles",
             "item": [
@@ -147,18 +456,6 @@
                                     "description": "For Return Language Message default Arabic",
                                     "type": "text",
                                     "value": "ar"
-                                },
-                                {
-                                    "key": "file",
-                                    "value": null,
-                                    "type": "file",
-                                    "description": "Upload File Input"
-                                },
-                                {
-                                    "key": "file_name",
-                                    "value": "some string",
-                                    "type": "text",
-                                    "description": "normal input text"
                                 }
                             ]
                         },
@@ -207,18 +504,6 @@
                                     "description": "For Return Language Message default Arabic",
                                     "type": "text",
                                     "value": "ar"
-                                },
-                                {
-                                    "key": "file",
-                                    "value": null,
-                                    "type": "file",
-                                    "description": "Upload File Input"
-                                },
-                                {
-                                    "key": "file_name",
-                                    "value": "some string",
-                                    "type": "text",
-                                    "description": "normal input text"
                                 }
                             ]
                         },
@@ -1435,18 +1720,6 @@
                                     "description": "For Return Language Message default Arabic",
                                     "type": "text",
                                     "value": "ar"
-                                },
-                                {
-                                    "key": "user_name",
-                                    "value": "App\\Models\\Admin::pluck('name'",
-                                    "type": "text",
-                                    "description": "Dropdown data (App\\Models\\Admin::pluck('name')"
-                                },
-                                {
-                                    "key": "user_role",
-                                    "value": "entry",
-                                    "type": "text",
-                                    "description": "Dropdown data (entry,manager,specifcation,desighn,printer,cover,printer_cover,after_print,printer_digital)"
                                 }
                             ]
                         },
@@ -1495,18 +1768,6 @@
                                     "description": "For Return Language Message default Arabic",
                                     "type": "text",
                                     "value": "ar"
-                                },
-                                {
-                                    "key": "user_name",
-                                    "value": "App\\Models\\Admin::pluck('name'",
-                                    "type": "text",
-                                    "description": "Dropdown data (App\\Models\\Admin::pluck('name')"
-                                },
-                                {
-                                    "key": "user_role",
-                                    "value": "entry",
-                                    "type": "text",
-                                    "description": "Dropdown data (entry,manager,specifcation,desighn,printer,cover,printer_cover,after_print,printer_digital)"
                                 }
                             ]
                         },

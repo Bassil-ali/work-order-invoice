@@ -8,8 +8,8 @@
 		<a href="{{ aurl('/joborders/'.$id.'/edit')}}" class="dropdown-item" ><i class="fas fa-edit"></i> {{trans('admin.edit')}}</a>
 		<a href="{{ aurl('/joborders/'.$id)}}" class="dropdown-item" ><i class="fa fa-eye"></i> {{trans('admin.show')}}</a>
 		{{-- @if(App\Models\UserRole::where('user_name', admin()->id)->value('user_role') == 'entry') --}}
-		<a href="{{ aurl('/joborders_print/'.$id) }}" class="dropdown-item">
-			<i class="fa fa-eye"></i> {{ trans('admin.print') }}
+		<a href="{{ aurl('/joborders_print/'.$id) }}" target="_blank" class="dropdown-item">
+			<i class="fa fa-print"></i> {{ trans('admin.print') }}
 		</a>
 	   {{-- @endif --}}
 	

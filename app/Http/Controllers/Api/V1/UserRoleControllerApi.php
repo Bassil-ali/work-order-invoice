@@ -48,6 +48,7 @@ class UserRoleControllerApi extends Controller{
     {
     	$data = $request->except("_token");
     	
+              $data["user_id"] = auth()->id(); 
         $UserRole = UserRole::create($data); 
 
 		  $UserRole = UserRole::with($this->arrWith())->find($UserRole->id,$this->selectColumns);
@@ -105,6 +106,7 @@ class UserRoleControllerApi extends Controller{
 
             	$data = $this->updateFillableColumns();
                  
+              $data["user_id"] = auth()->id(); 
               UserRole::where("id",$id)->update($data);
 
               $UserRole = UserRole::with($this->arrWith())->find($id,$this->selectColumns);

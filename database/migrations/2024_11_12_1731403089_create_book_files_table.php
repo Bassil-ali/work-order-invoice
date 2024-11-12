@@ -5,7 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 // Auto Schema  By Baboon Script
 // Baboon Maker has been Created And Developed By [it v 1.6.40]
 // Copyright Reserved  [it v 1.6.40]
-class CreateUserRolesTable extends Migration
+class CreateBookFilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,11 +14,11 @@ class CreateUserRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_roles', function (Blueprint $table) {
+        Schema::create('book_files', function (Blueprint $table) {
             $table->bigIncrements('id');
 $table->foreignId("admin_id")->constrained("admins")->onUpdate("cascade")->onDelete("cascade");
-            $table->foreignId("user_name")->constrained("admins")->references("id");
-            $table->enum('user_role',['entry','manager','specifcation','desighn','printer','cover','printer_cover','after_print','printer_digital']);
+            $table->string('file');
+            $table->string('file_name');
 			$table->softDeletes();
 			$table->timestamps();
         });
@@ -31,6 +31,6 @@ $table->foreignId("admin_id")->constrained("admins")->onUpdate("cascade")->onDel
      */
     public function down()
     {
-        Schema::dropIfExists('user_roles');
+        Schema::dropIfExists('book_files');
     }
 }

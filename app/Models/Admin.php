@@ -30,6 +30,7 @@ class Admin extends Authenticatable {
 
 			if (!empty($this->group_id()->first())) {
 				$role = $this->group_id()->first()->role()->where('name', $explode_name[0])->first();
+				
 				if (!empty($role) && $role->{$explode_name[1]} == 'yes') {
 					return true;
 				} else {

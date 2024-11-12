@@ -106,7 +106,11 @@ class jobOrders extends Controller
     $joborders = jobOrder::find($id);
 
     $userRole = UserRole::where('user_name', admin()->id())->first();
-    //  dd($userRole);
+    
+    if($userRole == null){
+      $userRole = 'not_found';
+    }
+    // dd($userRole);
     return is_null($joborders) || empty($joborders) ?
       backWithError(trans("admin.undefinedRecord"), aurl("joborders")) :
       view('admin.joborders.edit', [
@@ -220,7 +224,8 @@ class jobOrders extends Controller
   {
     $jobOrder = jobOrder::find($id);
     //dd($joborders);
-    return view('admin.joborders.print', ['jobOrder' => $jobOrder]);
+    $userRole = UserRole::where('user_name', admin()->id())->first();
+    return view('admin.joborders.print', ['jobOrder' => $jobOrder,'userRole'=> $userRole]);
 
   }
 

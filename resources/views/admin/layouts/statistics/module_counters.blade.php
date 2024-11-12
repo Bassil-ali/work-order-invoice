@@ -36,7 +36,7 @@
     <!-- small box -->
     <div class="small-box bg-primary">
       <div class="inner">
-        <h3>{{ mK(App\Models\UserRole::count()) }}</h3>
+        <h3>{{ mK(App\Models\UserRoles::count()) }}</h3>
         <p>{{ trans("admin.userrole") }}</p>
       </div>
       <div class="icon">
@@ -62,18 +62,20 @@
     </div>
 </div>
 <!--joborders_end-->
-<!--bookfiles_start-->
+
+
+<!--bookfile_start-->
 <div class="col-lg-3 col-6">
     <!-- small box -->
     <div class="small-box bg-primary">
       <div class="inner">
         <h3>{{ mK(App\Models\BookFiles::count()) }}</h3>
-        <p>{{ trans("admin.bookfiles") }}</p>
+        <p>{{ trans("admin.bookfile") }}</p>
       </div>
       <div class="icon">
         <i class="fa fa-file-alt"></i>
       </div>
-      <a href="{{ aurl("bookfiles") }}" class="small-box-footer">{{ trans("admin.bookfiles") }} <i class="fas fa-arrow-circle-right"></i></a>
+      <a href="{{ aurl("bookfile") }}" class="small-box-footer">{{ trans("admin.bookfile") }} <i class="fas fa-arrow-circle-right"></i></a>
     </div>
 </div>
-<!--bookfiles_end-->
+<!--bookfile_end-->

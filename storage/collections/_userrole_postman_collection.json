@@ -1,6 +1,6 @@
 {
     "info": {
-        "_postman_id": "2789b55e-4bb8-41df-bed8-fa9309950b2f",
+        "_postman_id": "6b057e33-11d9-44ad-af87-59e0507ba604",
         "name": null,
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
@@ -158,18 +158,6 @@
                                     "description": "For Return Language Message default Arabic",
                                     "type": "text",
                                     "value": "ar"
-                                },
-                                {
-                                    "key": "user_name",
-                                    "value": "App\\Models\\Admin::pluck('name'",
-                                    "type": "text",
-                                    "description": "Dropdown data (App\\Models\\Admin::pluck('name')"
-                                },
-                                {
-                                    "key": "user_role",
-                                    "value": "entry",
-                                    "type": "text",
-                                    "description": "Dropdown data (entry,manager,specifcation,desighn,printer,cover,printer_cover,after_print,printer_digital)"
                                 }
                             ]
                         },
@@ -218,18 +206,6 @@
                                     "description": "For Return Language Message default Arabic",
                                     "type": "text",
                                     "value": "ar"
-                                },
-                                {
-                                    "key": "user_name",
-                                    "value": "App\\Models\\Admin::pluck('name'",
-                                    "type": "text",
-                                    "description": "Dropdown data (App\\Models\\Admin::pluck('name')"
-                                },
-                                {
-                                    "key": "user_role",
-                                    "value": "entry",
-                                    "type": "text",
-                                    "description": "Dropdown data (entry,manager,specifcation,desighn,printer,cover,printer_cover,after_print,printer_digital)"
                                 }
                             ]
                         },

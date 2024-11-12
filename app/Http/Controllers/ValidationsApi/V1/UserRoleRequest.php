@@ -5,7 +5,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UserRoleControllerRequest extends FormRequest {
+class UserRoleRequest extends FormRequest {
 
 	/**
 	 * Baboon Script By [it v 1.6.40]
@@ -25,16 +25,12 @@ class UserRoleControllerRequest extends FormRequest {
 	 */
 	protected function onCreate() {
 		return [
-             'user_name'=>'required',
-             'user_role'=>'required|in:entry,manager,specifcation,desighn,printer,cover,printer_cover,after_print,printer_digital',
 		];
 	}
 
 
 	protected function onUpdate() {
 		return [
-             'user_name'=>'required',
-             'user_role'=>'required|in:entry,manager,specifcation,desighn,printer,cover,printer_cover,after_print,printer_digital',
 		];
 	}
 
@@ -52,8 +48,6 @@ class UserRoleControllerRequest extends FormRequest {
 	 */
 	public function attributes() {
 		return [
-             'user_name'=>trans('admin.user_name'),
-             'user_role'=>trans('admin.user_role'),
 		];
 	}
 

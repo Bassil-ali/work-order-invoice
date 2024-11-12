@@ -1,6 +1,6 @@
 @extends('admin.index')
 @section('content')
-{!! Form::open(["method" => "post","url" => [aurl('/bookfiles/multi_delete')]]) !!}
+{!! Form::open(["method" => "post","url" => [aurl('/bookfile/multi_delete')]]) !!}
 <div class="card card-dark">
 	<div class="card-header">
 		<h3 class="card-title">{{!empty($title)?$title:''}}</h3>

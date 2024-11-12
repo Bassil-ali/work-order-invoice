@@ -5,7 +5,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class BookFilesRequest extends FormRequest {
+class BookFileRequest extends FormRequest {
 
 	/**
 	 * Baboon Script By [it v 1.6.40]

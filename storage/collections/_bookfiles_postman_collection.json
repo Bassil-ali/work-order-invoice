@@ -1,7 +1,7 @@
 {
     "info": {
-        "_postman_id": "a81cf5e4-949e-48c4-ab4c-b4ea7b110d64",
-        "name": "",
+        "_postman_id": "53271953-ab4d-45ef-8b26-321f816148a1",
+        "name": null,
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
     "variable": [
@@ -158,18 +158,6 @@
                                     "description": "For Return Language Message default Arabic",
                                     "type": "text",
                                     "value": "ar"
-                                },
-                                {
-                                    "key": "file",
-                                    "value": null,
-                                    "type": "file",
-                                    "description": "Upload File Input"
-                                },
-                                {
-                                    "key": "file_name",
-                                    "value": "some string",
-                                    "type": "text",
-                                    "description": "normal input text"
                                 }
                             ]
                         },
@@ -218,18 +206,6 @@
                                     "description": "For Return Language Message default Arabic",
                                     "type": "text",
                                     "value": "ar"
-                                },
-                                {
-                                    "key": "file",
-                                    "value": null,
-                                    "type": "file",
-                                    "description": "Upload File Input"
-                                },
-                                {
-                                    "key": "file_name",
-                                    "value": "some string",
-                                    "type": "text",
-                                    "description": "normal input text"
                                 }
                             ]
                         },

@@ -6,15 +6,13 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\BookFiles;
 use Validator;
-use App\Http\Controllers\ValidationsApi\V1\BookFilesControllerRequest;
+use App\Http\Controllers\ValidationsApi\V1\BookFileRequest;
 // Auto Controller Maker By Baboon Script
 // Baboon Maker has been Created And Developed By  [it v 1.6.40]
 // Copyright Reserved  [it v 1.6.40]
-class BookFilesControllerApi extends Controller{
+class BookFileApi extends Controller{
 	protected $selectColumns = [
 		"id",
-		"file",
-		"file_name",
 	];
 
             /**
@@ -44,17 +42,12 @@ class BookFilesControllerApi extends Controller{
              * Store a newly created resource in storage. Api
              * @return \Illuminate\Http\Response
              */
-    public function store(BookFilesControllerRequest $request)
+    public function store(BookFileRequest $request)
     {
     	$data = $request->except("_token");
     	
               $data["user_id"] = auth()->id(); 
-                $data["file"] = "";
         $BookFiles = BookFiles::create($data); 
-               if(request()->hasFile("file")){
-              $BookFiles->file = it()->upload("file","bookfiles/".$BookFiles->id);
-              $BookFiles->save();
-              }
 
 		  $BookFiles = BookFiles::with($this->arrWith())->find($BookFiles->id,$this->selectColumns);
         return successResponseJson([
@@ -92,7 +85,7 @@ class BookFilesControllerApi extends Controller{
              */
             public function updateFillableColumns() {
 				       $fillableCols = [];
-				       foreach (array_keys((new BookFilesControllerRequest)->attributes()) as $fillableUpdate) {
+				       foreach (array_keys((new BookFileRequest)->attributes()) as $fillableUpdate) {
   				        if (!is_null(request($fillableUpdate))) {
 						  $fillableCols[$fillableUpdate] = request($fillableUpdate);
 						}
@@ -100,7 +93,7 @@ class BookFilesControllerApi extends Controller{
   				     return $fillableCols;
   	     		}
 
-            public function update(BookFilesControllerRequest $request,$id)
+            public function update(BookFileRequest $request,$id)
             {
             	$BookFiles = BookFiles::find($id);
             	if(is_null($BookFiles) || empty($BookFiles)){
@@ -112,10 +105,6 @@ class BookFilesControllerApi extends Controller{
             	$data = $this->updateFillableColumns();
                  
               $data["user_id"] = auth()->id(); 
-               if(request()->hasFile("file")){
-              it()->delete($BookFiles->file);
-              $data["file"] = it()->upload("file","bookfiles/".$BookFiles->id);
-               }
               BookFiles::where("id",$id)->update($data);
 
               $BookFiles = BookFiles::with($this->arrWith())->find($id,$this->selectColumns);
@@ -132,20 +121,20 @@ class BookFilesControllerApi extends Controller{
              */
             public function destroy($id)
             {
-               $bookfiles = BookFiles::find($id);
-            	if(is_null($bookfiles) || empty($bookfiles)){
+               $bookfile = BookFiles::find($id);
+            	if(is_null($bookfile) || empty($bookfile)){
             	 return errorResponseJson([
             	  "message"=>trans("admin.undefinedRecord")
             	 ]);
             	}
 
 
-              if(!empty($bookfiles->file)){
-               it()->delete($bookfiles->file);
+              if(!empty($bookfile->file)){
+               it()->delete($bookfile->file);
               }
                it()->delete("bookfiles",$id);
 
-               $bookfiles->delete();
+               $bookfile->delete();
                return successResponseJson([
                 "message"=>trans("admin.deleted")
                ]);
@@ -158,36 +147,36 @@ class BookFilesControllerApi extends Controller{
                 $data = request("selected_data");
                 if(is_array($data)){
                     foreach($data as $id){
-                    $bookfiles = BookFiles::find($id);
-	            	if(is_null($bookfiles) || empty($bookfiles)){
+                    $bookfile = BookFiles::find($id);
+	            	if(is_null($bookfile) || empty($bookfile)){
 	            	 return errorResponseJson([
 	            	  "message"=>trans("admin.undefinedRecord")
 	            	 ]);
 	            	}
 
-                    	if(!empty($bookfiles->file)){
-                    	it()->delete($bookfiles->file);
+                    	if(!empty($bookfile->file)){
+                    	it()->delete($bookfile->file);
                     	}
                     	it()->delete("bookfiles",$id);
-                    	$bookfiles->delete();
+                    	$bookfile->delete();
                     }
                     return successResponseJson([
                      "message"=>trans("admin.deleted")
                     ]);
                 }else {
-                    $bookfiles = BookFiles::find($data);
-	            	if(is_null($bookfiles) || empty($bookfiles)){
+                    $bookfile = BookFiles::find($data);
+	            	if(is_null($bookfile) || empty($bookfile)){
 	            	 return errorResponseJson([
 	            	  "message"=>trans("admin.undefinedRecord")
 	            	 ]);
 	            	}
  
-                    	if(!empty($bookfiles->file)){
-                    	it()->delete($bookfiles->file);
+                    	if(!empty($bookfile->file)){
+                    	it()->delete($bookfile->file);
                     	}
                     	it()->delete("bookfiles",$data);
 
-                    $bookfiles->delete();
+                    $bookfile->delete();
                     return successResponseJson([
                      "message"=>trans("admin.deleted")
                     ]);

@@ -98,7 +98,7 @@
           </div>
         </div>
     </div>
-      
+  @if($userRole->user_role == "manager")
     <div class="container text-right mt-3">
         <div class="row">
           <div class="col-12">
@@ -156,6 +156,7 @@
             </div>
         </div>
     </div>
+  @endif
     </div>
       
 

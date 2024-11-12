@@ -1,7 +1,7 @@
 @extends('admin.index')
 @section('content')
 
-@include("admin.layouts.components.submit_form_ajax",["form"=>"#bookfiles"])
+
 <div class="card card-dark">
 	<div class="card-header">
 		<h3 class="card-title">
@@ -14,7 +14,7 @@
 			<span class="sr-only"></span>
 			</a>
 			<div class="dropdown-menu" role="menu">
-				<a href="{{ aurl('bookfiles') }}"  style="color:#343a40"  class="dropdown-item">
+				<a href="{{ aurl('bookfile') }}"  style="color:#343a40"  class="dropdown-item">
 				<i class="fas fa-list"></i> {{ trans('admin.show_all') }}</a>
 			</div>
 		</div>
@@ -27,7 +27,7 @@
 	<!-- /.card-header -->
 	<div class="card-body">
 								
-{!! Form::open(['url'=>aurl('/bookfiles'),'id'=>'bookfiles','files'=>true,'class'=>'form-horizontal form-row-seperated']) !!}
+{!! Form::open(['url'=>aurl('/bookfile'),'id'=>'bookfile','files'=>true,'class'=>'form-horizontal form-row-seperated']) !!}
 <div class="row">
 
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 file">

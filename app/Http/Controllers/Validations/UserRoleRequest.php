@@ -5,7 +5,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UserRoleControllerRequest extends FormRequest {
+class UserRoleRequest extends FormRequest {
 
 	/**
 	 * Baboon Script By [it v 1.6.40]

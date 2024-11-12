@@ -38,16 +38,14 @@ Route::group(['prefix'=>app('admin'),'middleware'=>'Lang'],function(){
 		Route::post('admingroups/multi_delete','Admin\AdminGroups@multi_delete');
 		Route::resource('admins','Admin\Admins');
 		Route::post('admins/multi_delete','Admin\Admins@multi_delete');
-		Route::resource('files','Admin\FilesController');
-		Route::post('files/multi_delete','Admin\Files@multi_delete');
-		Route::resource('userrole','Admin\UserRoleController');
-		Route::post('userrole/multi_delete','Admin\UserRoleController@multi_delete');
+		Route::resource('userrole','Admin\UserRole');
+		Route::post('userrole/multi_delete','Admin\UserRole@multi_delete');
 		
 		
 		Route::resource('joborders','Admin\jobOrders');
 		Route::post('joborders/multi_delete','Admin\jobOrders@multi_delete');
-		Route::resource('bookfiles','Admin\BookFilesController');
-		Route::post('bookfiles/multi_delete','Admin\BookFilesController@multi_delete');
+		Route::resource('bookfile','Admin\BookFile');
+		Route::post('bookfile/multi_delete','Admin\BookFils@multi_delete');
 		Route::get('joborders_print/{id}','Admin\jobOrders@print');
 
 		

@@ -99,7 +99,7 @@
                     </div> --}}
                     <!-- /.social-auth-links -->
                     <br/>
-                    <p class="mb-1" dir="{{app('dir')}}">
+                    {{-- <p class="mb-1" dir="{{app('dir')}}">
                         <a href="{{ aurl('forgot/password') }}">{{ trans('admin.forgot_password') }}</a>
                     </p>
                     @if(count(L::all()) > 0)
@@ -116,7 +116,7 @@
                     {{ $i < count(L::all()) ?'.':'' }}
                     @endforeach
                     </center>
-                    @endif
+                    @endif --}}
                 </div>
                 <!-- /.card-body -->
             </div>

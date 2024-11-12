@@ -13,9 +13,10 @@ class AdminRole {
 	 * @return mixed
 	 */
 	public function handle($request, Closure $next, $role) {
-		// if (!admin()->user()->role($role)) {
-		// 	return redirect(aurl('need/permission'));
-		// }
+		//dd($role);
+		if (!admin()->user()->role($role)) {
+			return redirect(aurl('need/permission'));
+		}
 		return $next($request);
 	}
 }
