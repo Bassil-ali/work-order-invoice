@@ -1,34 +1,35 @@
-/node_modules
-/public/hot
-/public/storage
-/storage/*.key
-/vendor
-.env
-.env.backup
-.phpunit.result.cache
-docker-compose.override.yml
-Homestead.json
-Homestead.yaml
-npm-debug.log
-yarn-error.log
-/.idea
-/.vscode
+/*
+# /node_modules
+# /public/hot
+# /public/storage
+# /storage/*.key
+# /vendor
+# .env
+# .env.backup
+# .phpunit.result.cache
+# docker-compose.override.yml
+# Homestead.json
+# Homestead.yaml
+# npm-debug.log
+# yarn-error.log
+# /.idea
+# /.vscode
 
-# Laravel storage directory
-/storage/*
-!/storage/app
-!/storage/app/public
-!/storage/framework
-!/storage/logs
+# # Laravel storage directory
+# /storage/*
+# !/storage/app
+# !/storage/app/public
+# !/storage/framework
+# !/storage/logs
 
-# Ignore everything in storage except app/public, framework, and logs folders
-/storage/framework/*
-!/storage/framework/cache
-!/storage/framework/sessions
-!/storage/framework/testing
-!/storage/framework/views
+# # Ignore everything in storage except app/public, framework, and logs folders
+# /storage/framework/*
+# !/storage/framework/cache
+# !/storage/framework/sessions
+# !/storage/framework/testing
+# !/storage/framework/views
 
-# Ignoring contents of specific folders
-/storage/framework/cache/*
-/storage/framework/sessions/*
-/storage/framework/views/*
+# # Ignoring contents of specific folders
+# /storage/framework/cache/*
+# /storage/framework/sessions/*
+# /storage/framework/views/*

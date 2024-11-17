@@ -10,7 +10,7 @@
   <title>أمر عمل </title>
   <style>
     input[type="checkbox"] {
-        pointer-events: none;
+       
     }
 </style>
 </head>
