@@ -44,6 +44,9 @@
         </div>
     </div>
 </div>
+
+<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12"></div>
+
 <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
     <div class="form-group">
         {!! Form::label('customer_name',trans('admin.customer_name'),['class'=>' control-label']) !!}
@@ -109,7 +112,7 @@
 
 
 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-    <h2>:المواصفات</h2>
+    <h2 dir="rtl">المواصفات:</h2>
 </div>
 <br></br>
 <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
@@ -173,7 +176,7 @@
     </div>
 </div>
 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-    <h2>:التصميم والمونتاج</h2>
+    <h2 dir="rtl">التصميم والمونتاج:</h2>
 </div>
 <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
     <div class="form-group">
@@ -248,7 +251,7 @@
     </div>
 </div>
 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-    <h2>:الطباعه اوفست</h2>
+    <h2 dir="rtl">الطباعه اوفست:</h2>
 </div>
 <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
 	<div class="form-group">
@@ -275,7 +278,7 @@
     </div>
 </div>
 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-    <h2>:الطباعــــــــــــة ( ديجتال )</h2>
+    <h2 dir="rtl">الطباعــــــــــــة ( ديجتال ):</h2>
 </div>
 <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
     <div class="form-group">
@@ -284,7 +287,7 @@
     </div>
 </div>
 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-    <h2>:لتجليـــــــد و السلوفان</h2>
+    <h2 dir="rtl">التجليـــــــد و السلوفان:</h2>
 </div>
 <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
 	<div class="form-group">
@@ -305,7 +308,7 @@
     </div>
 </div>
 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-    <h2>:ما بعد الطباعة</h2>
+    <h2 dir="rtl">ما بعد الطباعة:</h2>
 </div>
 <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
     <div class="form-group">

@@ -189,7 +189,7 @@
 		"cover_pallet_measurement_type"	=>		"اوجه الغلاف",
 		"50x70"	=>		"50x70",
 		"70x100"	=>		"70x100",
-		"cover_pallet_measurement"	=>		 "بليتات الغلاف",
+		"cover_pallet_measurement"	=>		 "قياس بليتات الغلاف",
 		"Paper_type"	=>		"نوع و رقم الغلاف",
 		"Lieutenant_Prepared_by"	=>  "اعد المونتاج",
 		"Lieutenant_notes"	=>		"ملاحظات الملازم",
